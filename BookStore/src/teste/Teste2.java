@@ -6,8 +6,8 @@ package teste;
 
 /**
  *
- * @author guilh
+ * @author harry
  */
-public class java {
-    System.out.println("OLAJSHBDHGASVDJKA");
+public class Teste2 {
+    
 }
