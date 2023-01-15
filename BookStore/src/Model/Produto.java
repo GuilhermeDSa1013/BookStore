@@ -10,14 +10,16 @@ public class Produto {
     private String descricao;
     private String fornecedor;
 
-    public Produto(int id, String nome, String tipo, String descricao, String fornecedor) {
-        super();
+    public Produto(int id,String nome,String tipo,String descricao,String fornecedor){
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
         this.descricao = descricao;
-        this.fornecedor = fornecedor;
+        this.fornecedor = fornecedor;        
+        
     }
+
+    
 
     public int getId() {
         return id;
