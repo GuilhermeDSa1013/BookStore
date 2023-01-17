@@ -5,6 +5,7 @@
 package Telas;
 import DOA.ClienteCONEC;
 import Model.*;
+import TelasUtil.LimitaCaracteres;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -19,6 +20,13 @@ public class Cadastro extends javax.swing.JFrame {
      */
     public Cadastro() {
         initComponents();
+        
+        txtnome.setDocument(new LimitaCaracteres(50, LimitaCaracteres.TipoEntrada.NOME));
+        txtendereco.setDocument(new LimitaCaracteres(100, LimitaCaracteres.TipoEntrada.ENDERECO));
+        txtcpf.setDocument(new LimitaCaracteres(11, LimitaCaracteres.TipoEntrada.CPF));
+        txttelefone.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.TELEFONE));
+        txtsenha.setDocument(new LimitaCaracteres(12, LimitaCaracteres.TipoEntrada.SENHA));
+        txtEmail.setDocument(new LimitaCaracteres(50, LimitaCaracteres.TipoEntrada.EMAIL));
     }
 
     /**
@@ -68,7 +76,7 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Nome completo");
+        jLabel1.setText("Nome");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("CPF");
@@ -165,7 +173,7 @@ public class Cadastro extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel1))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(37, 37, 37)
                                     .addComponent(jLabel7))
                                 .addComponent(txtEmail)
                                 .addComponent(txttelefone)
@@ -180,16 +188,16 @@ public class Cadastro extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1))
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
