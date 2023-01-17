@@ -9,14 +9,19 @@ public class Cliente {
     private String endereco;
     private String telefone;
     private String cpf;
+    private String senha;
+    private String email;
+    private int bookcoin;
+    
 
-    public Cliente(int id, String nome, String endereco, String telefone, String cpf) {
+    public Cliente(int id, String nome, String endereco, String telefone, String cpf,String senha,int bookcoin) {
         super();
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.cpf = cpf;
+        this.senha = senha;
     }
 
     public int getId() {
@@ -59,6 +64,34 @@ public class Cliente {
         this.cpf = cpf;
     }
 
+    
+        public String getSenha() {
+        return senha;
+    }
+
+    
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    
+    public int getBookcoin() {
+        return bookcoin;
+    }
+
+   
+    public void setBookcoin(int bookcoin) {
+        this.bookcoin = bookcoin;
+    }
+    
+     public String getEmail() {
+        return email;
+    }
+
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public void consultarprod() {
 
     }
@@ -78,4 +111,8 @@ public class Cliente {
     public void inserirmetpagamento() {
 
     }
-}
+
+
+
+}    
+    
