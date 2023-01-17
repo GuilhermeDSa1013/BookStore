@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        
+
         txtSenha.setDocument(new LimitaCaracteres(12, LimitaCaracteres.TipoEntrada.SENHA));
         txtEmail.setDocument(new LimitaCaracteres(50, LimitaCaracteres.TipoEntrada.EMAIL));
     }
@@ -193,39 +193,41 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        
-        try {
-            
-            Cliente loga = new Cliente(0,"","","","","",0);
 
-           loga.setSenha(txtSenha.getText());
-           loga.setEmail(txtEmail.getText());
-           
-           
-           ClienteCONEC DOACliente = new ClienteCONEC();
-           
-           //A variavel assume um valor caso a relação com o mysql tenha sido bem sucedida
-           ResultSet setalogin = DOACliente.AutentificarOCadastro(loga);
-                  
-           if(setalogin.next()){
-               
-               //Tem no banco logo é permitida a entrada
-               Principal y = new Principal();
-               this.dispose();
-               y.setVisible(true);
-               
-               
-           }else{
-               
-               //Não tem no banco logo não é permitida a entrada
-               JOptionPane.showMessageDialog(null, "Não existe esse usuario!" +"\n" + "Crie uma conta ou entre em uma existente!");
-               
-           }
-           
-        }catch (SQLException erro){
-            
-            
-        }  
+        if(txtEmail.getText().equals("admin@gmail.com")&&txtSenha.getText().equals("1234")){
+            Admin a = new Admin();
+            this.dispose();
+            a.setVisible(true);
+        }
+        try {
+
+            Cliente loga = new Cliente(0, "", "", "", "", "", 0);
+
+            loga.setSenha(txtSenha.getText());
+            loga.setEmail(txtEmail.getText());
+
+            ClienteCONEC DOACliente = new ClienteCONEC();
+
+            //A variavel assume um valor caso a relação com o mysql tenha sido bem sucedida
+            ResultSet setalogin = DOACliente.AutentificarOCadastro(loga);
+
+            if (setalogin.next()) {
+
+                //Tem no banco logo é permitida a entrada
+                Principal y = new Principal();
+                this.dispose();
+                y.setVisible(true);
+
+            } else {
+
+                //Não tem no banco logo não é permitida a entrada
+                JOptionPane.showMessageDialog(null, "Não existe esse usuario!" + "\n" + "Crie uma conta ou entre em uma existente!");
+
+            }
+
+        } catch (SQLException erro) {
+
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed

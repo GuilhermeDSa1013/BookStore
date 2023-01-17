@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Telas;
+import DOA.ClienteCONEC;
+import Model.*;
 
 /**
  *
@@ -15,6 +17,7 @@ public class Conta extends javax.swing.JFrame {
      */
     public Conta() {
         initComponents();
+   
     }
 
     /**
