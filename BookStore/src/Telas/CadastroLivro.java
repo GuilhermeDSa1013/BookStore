@@ -15,6 +15,8 @@ public class CadastroLivro extends javax.swing.JFrame {
      */
     public CadastroLivro() {
         initComponents();
+        
+        txtdescricao.setLineWrap(true);
     }
 
     /**

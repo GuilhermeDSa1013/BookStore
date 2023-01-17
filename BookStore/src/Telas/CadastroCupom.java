@@ -9,13 +9,18 @@ package Telas;
  * @author guilh
  */
 public class CadastroCupom extends javax.swing.JFrame {
+ 
 
     /**
      * Creates new form CadastroCupom
      */
     public CadastroCupom() {
         initComponents();
+        
+        txtdescricao.setLineWrap(true);
     }
+    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.

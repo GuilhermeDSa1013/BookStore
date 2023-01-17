@@ -3,46 +3,42 @@ package Model;
 import java.util.*;
 
 public class Produto {
-
-    private int id;
-    private String nome;
-    private String tipo;
+    private String titulo;
+    private String autor;
+    private double valor;
+    private String editora;
     private String descricao;
-    private String fornecedor;
 
-    public Produto(int id,String nome,String tipo,String descricao,String fornecedor){
-        this.id = id;
-        this.nome = nome;
-        this.tipo = tipo;
-        this.descricao = descricao;
-        this.fornecedor = fornecedor;        
-        
+    public String getTitulo() {
+        return titulo;
     }
 
-    
-
-    public int getId() {
-        return id;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getAutor() {
+        return autor;
     }
 
-    public String getNome() {
-        return nome;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public double getValor() {
+        return valor;
     }
 
-    public String getTipo() {
-        return tipo;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
     }
 
     public String getDescricao() {
@@ -53,12 +49,13 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getFornecedor() {
-        return fornecedor;
+    public Produto(String titulo, String autor, double valor, String editora, String descricao) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.valor = valor;
+        this.editora = editora;
+        this.descricao = descricao;
     }
-
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
-    }
-
-}
+    
+    
+ }
