@@ -46,11 +46,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtitulo = new javax.swing.JTextField();
-        txtautor = new javax.swing.JTextField();
         txtvalor = new javax.swing.JTextField();
         txtdescricao = new javax.swing.JTextField();
         txteditora = new javax.swing.JTextField();
+        txtautor = new javax.swing.JTextField();
+        txtitulo = new javax.swing.JTextField();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -227,9 +227,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Novidades");
 
-        txtitulo.setBackground(new java.awt.Color(255, 255, 255));
-        txtitulo.setForeground(new java.awt.Color(255, 255, 255));
-        txtitulo.setText("OLAAAA");
+        txtvalor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtvalorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -252,12 +254,12 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(88, 88, 88))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtitulo)
+                            .addComponent(txteditora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtdescricao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtvalor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtautor, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -286,7 +288,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -366,7 +368,7 @@ public class Principal extends javax.swing.JFrame {
         //Cria um novo objeto produto que vai receber o retorno da função de consultar
         
         if(conn == null){
-            JOptionPane.showMessageDialog(null, "Eroo conexao pesquisar");
+            JOptionPane.showMessageDialog(null, "Erro conexao pesquisar");
         }else{
             Produto novo = pesquisa.consultarProds(titulo);
 
@@ -389,6 +391,10 @@ public class Principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_LabelPesquisarMouseClicked
+
+    private void txtvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtvalorActionPerformed
 
     /**
      * @param args the command line arguments

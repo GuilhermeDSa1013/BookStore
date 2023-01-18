@@ -101,13 +101,13 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txteditora" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="txtdescricao" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="txtvalor" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="txtautor" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="txtitulo" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtitulo" max="32767" attributes="0"/>
+                              <Component id="txteditora" alignment="0" pref="112" max="32767" attributes="0"/>
+                              <Component id="txtdescricao" alignment="0" pref="112" max="32767" attributes="0"/>
+                              <Component id="txtvalor" alignment="0" pref="112" max="32767" attributes="0"/>
+                              <Component id="txtautor" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -136,7 +136,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="txtitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txtautor" min="-2" max="-2" attributes="0"/>
@@ -146,7 +146,7 @@
                   <Component id="txtdescricao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txteditora" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="122" max="32767" attributes="0"/>
+                  <EmptySpace pref="132" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -408,24 +408,18 @@
             <Property name="text" type="java.lang.String" value="Novidades"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtitulo">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="OLAAAA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtautor">
-        </Component>
         <Component class="javax.swing.JTextField" name="txtvalor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtvalorActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtdescricao">
         </Component>
         <Component class="javax.swing.JTextField" name="txteditora">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtautor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtitulo">
         </Component>
       </SubComponents>
     </Container>

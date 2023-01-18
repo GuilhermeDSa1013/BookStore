@@ -7,7 +7,7 @@ import javax.swing.text.PlainDocument;
 public class LimitaCaracteres extends PlainDocument {
     
     public enum TipoEntrada{
-        NOME, ENDERECO, CPF, TELEFONE, EMAIL, SENHA;
+        NOME, ENDERECO, CPF, TELEFONE, EMAIL, SENHA, TITULO, AUTOR, EDITORA, DESCRICAO, VALOR
     };
     
     private int qtdCaracteres;
@@ -34,6 +34,11 @@ public class LimitaCaracteres extends PlainDocument {
             case TELEFONE:  regex = "[^0-9]";break;
             case EMAIL: regex = "[^\\p{IsLatin}@.\\-_][^0-9]";break;
             case SENHA: regex = "[^\\p{IsLatin}@.\\-_][^0-9]";break;
+            case TITULO: regex = "[^\\p{IsLatin} ,.\\-_][^0-9]";break;
+            case AUTOR: regex = "[^\\p{IsLatin} ]";break;
+            case EDITORA: regex = "[^\\p{IsLatin} ,.\\-_][^0-9]";break;
+            case DESCRICAO: regex = "[^\\p{IsLatin} ,.\\-_][^0-9]";break;
+            case VALOR: regex = "[^0-9.]";break;
         }
         //Fazendo a substituição
         str = str.replaceAll(regex, "");

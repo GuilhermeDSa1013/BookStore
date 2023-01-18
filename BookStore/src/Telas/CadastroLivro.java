@@ -5,6 +5,7 @@
 package Telas;
 import DOA.ProdutosCONEC;
 import Model.Produto;
+import TelasUtil.LimitaCaracteres;
 /**
  *
  * @author guilh
@@ -16,6 +17,12 @@ public class CadastroLivro extends javax.swing.JFrame {
      */
     public CadastroLivro() {
         initComponents();
+        
+        txttitulo.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.TITULO));
+        txtautor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.AUTOR));
+        txteditora.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.EDITORA));
+        txtdescricao.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.DESCRICAO));
+        txtvalor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.VALOR));
         
         txtdescricao.setLineWrap(true);
     }
