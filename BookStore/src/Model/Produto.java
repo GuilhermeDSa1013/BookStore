@@ -3,11 +3,14 @@ package Model;
 import java.util.*;
 
 public class Produto {
+    
+    private int id;
     private String titulo;
     private String autor;
     private double valor;
     private String editora;
     private String descricao;
+    private byte[] imagem;
 
     public String getTitulo() {
         return titulo;
@@ -48,14 +51,39 @@ public class Produto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
+    
+    public int getId() {
+        return id;
+    }
 
-    public Produto(String titulo, String autor, double valor, String editora, String descricao) {
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+     public byte[] getImagem() {
+        return imagem;
+    }
+
+    
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
+    public Produto(int id, String titulo, String autor, double valor, String editora, String descricao,byte[] imagem) {
+        this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.valor = valor;
         this.editora = editora;
         this.descricao = descricao;
+        this.imagem = imagem;
     }
+
+    
+   
+    
     
     
  }

@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Telas;
-
+import DOA.ProdutosCONEC;
+import Model.Produto;
 /**
  *
  * @author guilh
@@ -39,11 +40,13 @@ public class CadastroLivro extends javax.swing.JFrame {
         txtvalor = new javax.swing.JTextField();
         txtautor = new javax.swing.JTextField();
         txteditora = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCadastraAdm = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtdescricao = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         jLabel6.setText("jLabel6");
 
@@ -67,14 +70,14 @@ public class CadastroLivro extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Editora");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cadastrar");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastraAdm.setBackground(new java.awt.Color(0, 0, 0));
+        btnCadastraAdm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCadastraAdm.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastraAdm.setText("Cadastrar");
+        btnCadastraAdm.setBorderPainted(false);
+        btnCadastraAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastraAdmActionPerformed(evt);
             }
         });
 
@@ -93,6 +96,10 @@ public class CadastroLivro extends javax.swing.JFrame {
         txtdescricao.setRows(5);
         jScrollPane1.setViewportView(txtdescricao);
 
+        jLabel9.setText("Imagem");
+
+        jLabel10.setText("imagem");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,8 +107,12 @@ public class CadastroLivro extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(btnCadastraAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9)
                             .addComponent(jLabel8)
                             .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -120,10 +131,8 @@ public class CadastroLivro extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(txtautor, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1)
-                            .addComponent(txteditora)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txteditora)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,9 +163,13 @@ public class CadastroLivro extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(btnCadastraAdm)
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,12 +194,26 @@ public class CadastroLivro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastraAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastraAdmActionPerformed
+        
+        Produto novo = new Produto(0,"","",0,"","",null);
+        
+        novo.setTitulo(txttitulo.getText());
+        novo.setAutor(txtautor.getText());
+        novo.setValor(Double.parseDouble(txtvalor.getText()));
+        novo.setEditora(txteditora.getText());
+        novo.setDescricao(txtdescricao.getText());
+       // novo.getImagem(txtimagem)
+       
+        ProdutosCONEC produtos = new ProdutosCONEC();
+        
+        produtos.AdmCadastraProduto(novo);
+        
         Admin y = new Admin();
         this.dispose();
         y.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastraAdmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,8 +252,9 @@ public class CadastroLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCadastraAdm;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -234,6 +262,7 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtautor;

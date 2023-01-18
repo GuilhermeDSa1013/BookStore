@@ -198,8 +198,8 @@ public class Login extends javax.swing.JFrame {
             Admin a = new Admin();
             this.dispose();
             a.setVisible(true);
-        }
-        try {
+        }else{
+            try {
 
             Cliente loga = new Cliente(0, "", "", "", "", "", 0);
 
@@ -228,6 +228,8 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException erro) {
 
         }
+    }
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed

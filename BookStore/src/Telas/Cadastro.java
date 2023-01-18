@@ -278,11 +278,12 @@ public class Cadastro extends javax.swing.JFrame {
            ResultSet setaCliente = cliente.AutentificarOCadastro(novo);
 
             if (setaCliente.next()){
-                
+                //Se o next detectar o cadastro no banco ele impede o cadastro
                 JOptionPane.showMessageDialog(null, "Ja existe esse cadastro!");
 
             } else {
                 
+                //Se não ele permite
                 cliente.cadastrarCliente(novo);
                 
                 JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
