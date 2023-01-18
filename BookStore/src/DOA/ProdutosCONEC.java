@@ -14,6 +14,7 @@ public class ProdutosCONEC {
     PreparedStatement rue;
     ResultSet rs;
     
+    
     public void AdmCadastraProduto(Produto x){
         
         String sql = "insert into prods (titulo,autor,valor,editora,descricao,imagem) values(?,?,?,?,?,?)";
@@ -44,7 +45,7 @@ public class ProdutosCONEC {
     
     public Produto consultarProds(String titulo){
       
-        
+        //Seleciona linha onde o titulo é igual ao digitado
         String url = "select * from prods where titulo = ?";
         Produto novo = new Produto(0,"","",0,"","",null);
         conn = new Conexao().conectaBD();
@@ -58,6 +59,8 @@ public class ProdutosCONEC {
             
             if(rs.next()){
                 
+                //Se houver tal produto no banco ele retorna as informações no objetto
+                novo.setTitulo(rs.getString("titulo"));
                 novo.setAutor(rs.getString("autor"));
                 novo.setEditora(rs.getString("editora"));
                 novo.setValor(rs.getDouble("valor"));
@@ -82,8 +85,6 @@ public class ProdutosCONEC {
         }
        
         
-            
-    
-     
+           
         
 }
