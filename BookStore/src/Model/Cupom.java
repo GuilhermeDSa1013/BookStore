@@ -12,8 +12,8 @@ public class Cupom {
 
     private int codigo;
     private double valor;
-    private String validade;
-    private String descricao;
+    private int validade;
+    
 
     public int getCodigo() {
         return codigo;
@@ -23,13 +23,11 @@ public class Cupom {
         return valor;
     }
 
-    public String getValidade() {
+    public int getValidade() {
         return validade;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
+    
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
@@ -39,19 +37,17 @@ public class Cupom {
         this.valor = valor;
     }
 
-    public void setValidade(String validade) {
+    public void setValidade(int validade) {
         this.validade = validade;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    
 
-    public Cupom(int codigo, double valor, String validade, String descricao) {
+    public Cupom(int codigo, double valor, int validade) {
         this.codigo = codigo;
         this.valor = valor;
         this.validade = validade;
-        this.descricao = descricao;
+        
     }
 
 }

@@ -69,7 +69,7 @@ public class Admin extends javax.swing.JFrame {
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cupom.png"))); // NOI18N
-        jButton7.setText(" Cadatrar Cupom");
+        jButton7.setText(" Cadastrar Cupom");
         jButton7.setToolTipText("");
         jButton7.setBorderPainted(false);
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -97,7 +97,7 @@ public class Admin extends javax.swing.JFrame {
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/book.png"))); // NOI18N
-        jButton10.setText("Cadatrar Produto");
+        jButton10.setText("Cadastrar Produto");
         jButton10.setToolTipText("");
         jButton10.setBorderPainted(false);
         jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -114,7 +114,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addComponent(jButton10)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7)
@@ -151,7 +151,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(164, 164, 164)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(173, 173, 173))
         );

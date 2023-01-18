@@ -41,23 +41,26 @@ public class ClienteCONEC {
             rue.execute();
             rue.close();
                     
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null,"Cadastrar Cliente" + erro );
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Cadastrar Cliente" + erro.getMessage() );
         }
         
     }
     
     public ResultSet AutentificarOCadastro(Cliente novo){
         
+        //Recebe o cliente
         conn = new Conexao().conectaBD();
         
         try {
+            //Procura no banco de dados as duas variaveis
             String sql = "select * from usuarios where email = ? and senha = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,novo.getEmail());
             pstm.setString(2, novo.getSenha());
             
             ResultSet setar = pstm.executeQuery();
+            //Se a houver o cadastro 
             return setar;
             
         } catch (SQLException erro) {
@@ -69,4 +72,34 @@ public class ClienteCONEC {
         
     }
     
+   /* 
+    public void AlterarCadastro(Cliente novo){
+        
+        
+        String sql = "update usuarios set nome = ? , endereco = ?, telefone = ?, senha = ?, email = ? where cpf = ?";
+        conn = new Conexao().conectaBD();
+        
+        try {
+            
+            rue = conn.prepareStatement(sql);
+            
+            
+            rue.setString(2,novo.getNome());
+            rue.setString(3,novo.getEndereco());
+            rue.setString(4,novo.getTelefone());
+            rue.setString(5,novo.getCpf());
+            rue.setString(6,novo.getSenha());
+            rue.setString(7,novo.getEmail());
+            
+            
+            rue.execute();
+            rue.close();
+                    
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Alterar Cliente" + erro.getMessage() );
+        }
+    }
+    */    
+        
+   
 }
