@@ -55,7 +55,7 @@ public class BookCoins extends javax.swing.JFrame {
         jLabel6.setText("Novidades");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Principal");
+        setTitle("Tela BookCoins");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
