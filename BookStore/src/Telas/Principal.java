@@ -46,11 +46,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+
+        txtautor = new javax.swing.JTextField();
         txtvalor = new javax.swing.JTextField();
         txtdescricao = new javax.swing.JTextField();
         txteditora = new javax.swing.JTextField();
-        txtautor = new javax.swing.JTextField();
-        txtitulo = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -227,11 +228,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Novidades");
 
-        txtvalor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtvalorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -254,12 +250,13 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(88, 88, 88))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtitulo)
-                            .addComponent(txteditora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                            .addComponent(txtdescricao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                            .addComponent(txtvalor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                            .addComponent(txtautor, javax.swing.GroupLayout.Alignment.LEADING))
+
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txteditora, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtdescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtvalor, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtautor, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtNome))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -278,9 +275,9 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))))
-                .addGap(18, 18, 18)
-                .addComponent(txtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,6 +367,7 @@ public class Principal extends javax.swing.JFrame {
         if(conn == null){
             JOptionPane.showMessageDialog(null, "Erro conexao pesquisar");
         }else{
+            //Se a conexao foi bem sucedida ele chama a função de consultar
             Produto novo = pesquisa.consultarProds(titulo);
 
             if (novo == null) {
@@ -378,7 +376,7 @@ public class Principal extends javax.swing.JFrame {
 
             } else {
 
-                txtitulo.setText(novo.getTitulo());
+                txtNome.setText(novo.getTitulo());
                 txtautor.setText(novo.getAutor());
                 txtvalor.setText(String.valueOf(novo.getValor()));
                 txteditora.setText(novo.getEditora());
@@ -448,10 +446,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtautor;
     private javax.swing.JTextField txtdescricao;
     private javax.swing.JTextField txteditora;
-    private javax.swing.JTextField txtitulo;
     private javax.swing.JTextField txtpesquisar;
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
