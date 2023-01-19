@@ -76,7 +76,7 @@ public class ClienteCONEC {
     }
     
     
-    public ArrayList<Cliente> setacadastros(String Contaaseralterada){
+    public ArrayList<Cliente>setacadastros(String Contaaseralterada){
         
         String sql = "select * from usuarios where senha = ? ";
         conn = new Conexao().conectaBD();
@@ -120,7 +120,7 @@ public class ClienteCONEC {
     }
     
   
-    public void AlterarCadastro(Cliente novo,String senhadig){
+    public void AlterarCadastro( Cliente novo,String senhadig){
         
         
         String sql = "update usuarios set nome = ? , endereco = ?, telefone = ?, cpf = ?,email = ? where senha = ?";

@@ -7,13 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class ProdutosCONEC {
     
     Connection conn;
     PreparedStatement rue;
     ResultSet rs;
-    
+    ArrayList<Produto> lista = new ArrayList<>();
     
     public void AdmCadastraProduto(Produto x){
         
@@ -65,7 +66,7 @@ public class ProdutosCONEC {
                 novo.setEditora(rs.getString("editora"));
                 novo.setValor(rs.getDouble("valor"));
                 novo.setDescricao(rs.getString("descricao"));
-                novo.setImagem(rs.getBytes("imagem"));
+                //novo.setImagem(rs.getBytes("imagem"));
                 
                 
                 
@@ -85,6 +86,47 @@ public class ProdutosCONEC {
         }
        
         
-           
+         public ArrayList<Produto> listarLivros(){
+      
+        //Vai na tabela de livros
+        String url = "select * from prods ";
+      
+        
+        conn = new Conexao().conectaBD();
+        
+            try {
+
+                rue = conn.prepareStatement(url);
+
+                rs = rue.executeQuery();
+
+                while(rs.next()){
+                       
+                    Produto novo = new Produto(0,"","",0,"","",null);
+                    
+                    //Adiciona a lista todos os produtos existentes
+                    novo.setTitulo(rs.getString("titulo"));
+                    novo.setAutor(rs.getString("autor"));
+                    novo.setValor(rs.getDouble("valor"));
+                    novo.setEditora(rs.getString("editora"));
+                    novo.setDescricao(rs.getString("descricao"));
+                    novo.setImagem(rs.getBytes("imagem"));
+                        
+
+                    lista.add(novo);
+
+                }
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null," Listar livros " +  erro.getMessage());
+                return null;
+
+            }
+            
+            return lista;
+        }
+         
+        
+    
         
 }
