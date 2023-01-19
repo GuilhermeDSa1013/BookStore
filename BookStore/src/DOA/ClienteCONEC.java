@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 /**
  *
@@ -20,8 +19,6 @@ public class ClienteCONEC {
     
     Connection conn;
     PreparedStatement rue;
-    ResultSet rs;
-    ArrayList<Cliente> lista = new ArrayList<>();
     
     public void cadastrarCliente(Cliente x){
         
@@ -75,79 +72,34 @@ public class ClienteCONEC {
         
     }
     
-    
-    public ArrayList<Cliente> setacadastros(String Contaaseralterada){
+   /* 
+    public void AlterarCadastro(Cliente novo){
         
-        String sql = "select * from usuarios where senha = ? ";
+        
+        String sql = "update usuarios set nome = ? , endereco = ?, telefone = ?, senha = ?, email = ? where cpf = ?";
         conn = new Conexao().conectaBD();
-        
-        try {
-           
-            rue = conn.prepareStatement(sql);
-            rue.setString(1, Contaaseralterada);
-            
-            rs = rue.executeQuery();
-            
-            Cliente novo = new Cliente(0, "", "", "", "", "", 0);
-            
-            if(rs.next()){
-                
-                novo.setId(rs.getInt("id"));
-                novo.setNome(rs.getString("nome"));
-                novo.setEmail(rs.getString("email"));
-                novo.setEndereco(rs.getString("endereco"));
-                novo.setSenha(rs.getString("senha"));     
-                novo.setTelefone(rs.getString("telefone"));
-                novo.setCpf(rs.getString("cpf"));
-                
-                lista.add(novo);
-                   
-            }else{
-                
-                return null;
-                
-            }
-      
-        } catch (SQLException erro) {
-        
-        JOptionPane.showMessageDialog(null, "Seta cadastros" + erro.getMessage());
-        
-        }
-        
-        
-          return lista; 
-        
-    }
-    
-  
-    public void AlterarCadastro(Cliente novo,String senhadig){
-        
-        
-        String sql = "update usuarios set nome = ? , endereco = ?, telefone = ?, cpf = ?,email = ? where senha = ?";
-        conn = new Conexao().conectaBD();
-        
         
         try {
             
             rue = conn.prepareStatement(sql);
-            rue.setString(6, senhadig);
             
-            rue.setString(1,novo.getNome());
-            rue.setString(2,novo.getEndereco());
-            rue.setString(3,novo.getTelefone());
-            rue.setString(4,novo.getCpf());
-            rue.setString(5,novo.getEmail());
+            
+            rue.setString(2,novo.getNome());
+            rue.setString(3,novo.getEndereco());
+            rue.setString(4,novo.getTelefone());
+            rue.setString(5,novo.getCpf());
+            rue.setString(6,novo.getSenha());
+            rue.setString(7,novo.getEmail());
             
             
             rue.execute();
             rue.close();
-                  
+                    
         } catch (SQLException erro) {
-            
             JOptionPane.showMessageDialog(null,"Alterar Cliente" + erro.getMessage() );
         }
     }
-       
+    */    
         
    
 }

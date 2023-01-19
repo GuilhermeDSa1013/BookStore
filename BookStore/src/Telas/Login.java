@@ -193,10 +193,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        
-        
-        
-        
+
         if(txtEmail.getText().equals("admin@gmail.com")&&txtSenha.getText().equals("1234")){
             Admin a = new Admin();
             this.dispose();
@@ -236,7 +233,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -302,9 +299,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtEmail;
-    public static javax.swing.JPasswordField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
-
-   
-
 }
