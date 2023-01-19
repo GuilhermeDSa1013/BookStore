@@ -5,6 +5,7 @@
 package Telas;
 import Model.Cupom;
 import DOA.CupomCONEC;
+import TelasUtil.LimitaCaracteres;
 /**
  *
  * @author guilh
@@ -18,7 +19,7 @@ public class CadastroCupom extends javax.swing.JFrame {
     public CadastroCupom() {
         initComponents();
         
-       
+       txtvalor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.VALOR));
     }
     
  

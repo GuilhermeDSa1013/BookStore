@@ -101,6 +101,7 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       </Group>
+
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txteditora" pref="112" max="32767" attributes="0"/>
@@ -108,6 +109,7 @@
                               <Component id="txtvalor" pref="112" max="32767" attributes="0"/>
                               <Component id="txtautor" pref="112" max="32767" attributes="0"/>
                               <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
+
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -136,9 +138,11 @@
                           </Group>
                       </Group>
                   </Group>
+
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="txtNome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+
                   <Component id="txtautor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txtvalor" min="-2" max="-2" attributes="0"/>
@@ -146,7 +150,7 @@
                   <Component id="txtdescricao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txteditora" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="122" max="32767" attributes="0"/>
+                  <EmptySpace pref="132" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -408,13 +412,8 @@
             <Property name="text" type="java.lang.String" value="Novidades"/>
           </Properties>
         </Component>
+
         <Component class="javax.swing.JTextField" name="txtautor">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtvalor">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtdescricao">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txteditora">
         </Component>
         <Component class="javax.swing.JTextField" name="txtNome">
         </Component>
