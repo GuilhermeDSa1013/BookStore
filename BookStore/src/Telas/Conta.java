@@ -3,8 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Telas;
+
 import DOA.ClienteCONEC;
 import Model.Cliente;
+import Model.SenhaCompara;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import Telas.Login;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,12 +40,33 @@ public class Conta extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnCONTA = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtSenhacomando = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtEndereco = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
+        btnOK = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelCliente = new javax.swing.JTable();
+        btnCarregar = new javax.swing.JButton();
+        btnAltera = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -74,17 +101,17 @@ public class Conta extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/88-885453_login-white-on-clear-user-icon.png"))); // NOI18N
-        jButton3.setText(" Conta");
-        jButton3.setToolTipText("");
-        jButton3.setBorderPainted(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnCONTA.setBackground(new java.awt.Color(0, 0, 0));
+        btnCONTA.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCONTA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/88-885453_login-white-on-clear-user-icon.png"))); // NOI18N
+        btnCONTA.setText(" Conta");
+        btnCONTA.setToolTipText("");
+        btnCONTA.setBorderPainted(false);
+        btnCONTA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCONTA.setEnabled(false);
+        btnCONTA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnCONTAActionPerformed(evt);
             }
         });
 
@@ -166,7 +193,7 @@ public class Conta extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnCONTA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -188,7 +215,7 @@ public class Conta extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(btnCONTA)
                     .addComponent(jButton5)
                     .addComponent(jButton6)
                     .addComponent(jButton7)
@@ -197,17 +224,168 @@ public class Conta extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel2.setText("ALTERAR DADOS");
+
+        jLabel3.setText("Digite sua senha novamente  para alterar:");
+
+        txtSenhacomando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhacomandoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Nome:");
+
+        jLabel5.setText("Email:");
+
+        jLabel7.setText("Endereço:");
+
+        jLabel9.setText("Telefone:");
+
+        jLabel10.setText("Cpf:");
+
+        jTextField5.setText("jTextField2");
+
+        btnOK.setText("OK");
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKActionPerformed(evt);
+            }
+        });
+
+        tabelCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID","Nome", "Email", "Endereço","Telefone","CPF"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelCliente);
+
+        btnCarregar.setText("CARREGAR INFORMAÇÕES");
+        btnCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarActionPerformed(evt);
+            }
+        });
+
+        btnAltera.setText("ALTERAR");
+        btnAltera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlteraActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("ID:");
+
+        txtId.setEditable(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel11)))
+                                .addGap(40, 40, 40)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(txtCpf)
+                                    .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtId)))
+                            .addComponent(jLabel3))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtSenhacomando, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnOK))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(btnAltera, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCarregar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(108, 108, 108)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(822, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(486, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSenhacomando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnOK))
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAltera)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnCarregar)
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(251, 251, 251)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(311, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,12 +442,13 @@ public class Conta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnCONTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCONTAActionPerformed
+               
         Conta u = new Conta();
         this.dispose();
         u.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnCONTAActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         Principal t = new Principal();
@@ -277,6 +456,49 @@ public class Conta extends javax.swing.JFrame {
         t.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+       
+        SenhaCompara novo = new SenhaCompara();
+        novo.setSenha(txtSenhacomando.getText());
+        
+       
+        //Comparção de senhas digitadas mo login e no novo campo
+        
+        if( novo.getSenha().equals(Login.txtSenha.getText())){
+            
+             listavaloresdaconta(txtSenhacomando.getText());
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Não é sua senha");
+            
+        }
+        
+        
+        
+       
+        
+        
+        
+    }//GEN-LAST:event_btnOKActionPerformed
+
+    private void txtSenhacomandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhacomandoActionPerformed
+        
+    }//GEN-LAST:event_txtSenhacomandoActionPerformed
+
+    private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
+       carregarcampos();
+    }//GEN-LAST:event_btnCarregarActionPerformed
+
+    private void btnAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlteraActionPerformed
+        //Botao faz a alterção e ja mostra na tabela
+        
+        listavaloresdaconta(txtSenhacomando.getText());
+        AlterarCadastro();   
+        
+      
+        JOptionPane.showMessageDialog(null, "Alterações feitas com sucesso!");
+    }//GEN-LAST:event_btnAlteraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +539,10 @@ public class Conta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAltera;
+    private javax.swing.JButton btnCONTA;
+    private javax.swing.JButton btnCarregar;
+    private javax.swing.JButton btnOK;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -325,14 +550,101 @@ public class Conta extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTable tabelCliente;
+    private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSenhacomando;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 
+    private void listavaloresdaconta(String Senha){
+        
+        try {
+          
+            ClienteCONEC novo = new ClienteCONEC();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelCliente.getModel();
+            model.setNumRows(0);
+            
+            //Joga o objeto num array para poder mostra-lo numa tabela
+           
+            ArrayList<Cliente> novalista = novo.setacadastros(Senha);
+            
+            
+            for(int num = 0; num < novalista.size(); num++){
+                
+                model.addRow(new Object[]{
+                    //seta as informaçoes desejadas em cada coluna da tabela
+                    
+                    novalista.get(num).getId(),
+                    novalista.get(num).getNome(),
+                    novalista.get(num).getEmail(),
+                    novalista.get(num).getEndereco(),                  
+                    novalista.get(num).getTelefone(),
+                    novalista.get(num).getCpf()
+
+
+                });
+        }
+            
+            
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Lista valores" + e.getMessage());
+        }
+        
+    }
+
+
+    private void carregarcampos(){
     
-
-
-
+        int setar = tabelCliente.getSelectedRow();
+        
+        //Pega os valores da tabela na linha selecionada e joga nos campos de texto
+        txtId.setText(tabelCliente.getModel().getValueAt(setar, 0).toString());
+        txtNome.setText(tabelCliente.getModel().getValueAt(setar, 1).toString());
+        txtEmail.setText(tabelCliente.getModel().getValueAt(setar, 2).toString());
+        txtEndereco.setText(tabelCliente.getModel().getValueAt(setar, 3).toString());     
+        txtTelefone.setText(tabelCliente.getModel().getValueAt(setar, 4).toString());
+        txtCpf.setText(tabelCliente.getModel().getValueAt(setar, 5).toString());
+        
+    }
+       
+   
+    private void AlterarCadastro(){
+        
+        Cliente novo = new Cliente(0, "", "", "", "", "", 0);
+        
+        //pego os dados da interface
+        novo.setNome(txtNome.getText());
+        novo.setEmail(txtEmail.getText());
+        novo.setEndereco(txtEndereco.getText());
+        novo.setTelefone(txtTelefone.getText());
+        novo.setCpf(txtCpf.getText());
+        
+        //Novo objeto da classe de conexão para alterar os dados
+        ClienteCONEC nou = new ClienteCONEC();
+        nou.AlterarCadastro(novo, txtSenhacomando.getText());
+        
+        
+    }
+    
+    
 }
 

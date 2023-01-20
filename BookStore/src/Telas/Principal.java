@@ -8,6 +8,7 @@ import DOA.ProdutosCONEC;
 import javax.swing.JOptionPane;
 import DOA.Conexao;
 import java.sql.Connection;
+import java.util.ArrayList;
 /**
  *
  * @author guilh
@@ -19,6 +20,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        mostrarlivrosnaprincipal();
     }
 
     /**
@@ -46,11 +48,15 @@ public class Principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtitulo = new javax.swing.JTextField();
-        txtautor = new javax.swing.JTextField();
-        txtvalor = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         txtdescricao = new javax.swing.JTextField();
-        txteditora = new javax.swing.JTextField();
+        txtvalor = new javax.swing.JTextField();
+        btnCarrinho1 = new javax.swing.JButton();
+        txtDesc = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
+        TxtAutor = new javax.swing.JTextField();
+        txtCusto = new javax.swing.JTextField();
+        txtEditora = new javax.swing.JTextField();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -75,6 +81,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1004, 562));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(125, 255, 232));
 
@@ -169,21 +176,21 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9)
-                .addGap(21, 21, 21))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,12 +210,15 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 5, -1, -1));
+
         txtpesquisar.setDoubleBuffered(true);
         txtpesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpesquisarActionPerformed(evt);
             }
         });
+        jPanel3.add(txtpesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 710, -1));
 
         LabelPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/lupa.png"))); // NOI18N
         LabelPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,84 +226,49 @@ public class Principal extends javax.swing.JFrame {
                 LabelPesquisarMouseClicked(evt);
             }
         });
+        jPanel3.add(LabelPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Mais Vendidos");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Em Promoção");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Novidades");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        jPanel3.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 150, -1));
+        jPanel3.add(txtdescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 190, 110));
+        jPanel3.add(txtvalor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 150, -1));
 
-        txtitulo.setBackground(new java.awt.Color(255, 255, 255));
-        txtitulo.setForeground(new java.awt.Color(255, 255, 255));
-        txtitulo.setText("OLAAAA");
+        btnCarrinho1.setBackground(new java.awt.Color(51, 255, 51));
+        btnCarrinho1.setText("+CARRINHO");
+        btnCarrinho1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarrinho1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnCarrinho1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 150, 40));
+        jPanel3.add(txtDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 130, -1));
+        jPanel3.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 130, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(LabelPesquisar)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(280, 280, 280)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(88, 88, 88))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LabelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtpesquisar)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))))
-                .addGap(18, 18, 18)
-                .addComponent(txtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
-        );
+        TxtAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAutorActionPerformed(evt);
+            }
+        });
+        jPanel3.add(TxtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 130, -1));
+        jPanel3.add(txtCusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 130, -1));
+        jPanel3.add(txtEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 130, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,8 +341,9 @@ public class Principal extends javax.swing.JFrame {
         //Cria um novo objeto produto que vai receber o retorno da função de consultar
         
         if(conn == null){
-            JOptionPane.showMessageDialog(null, "Eroo conexao pesquisar");
+            JOptionPane.showMessageDialog(null, "Erro conexao pesquisar");
         }else{
+            //Se a conexao foi bem sucedida ele chama a função de consultar
             Produto novo = pesquisa.consultarProds(titulo);
 
             if (novo == null) {
@@ -376,11 +352,12 @@ public class Principal extends javax.swing.JFrame {
 
             } else {
 
-                txtitulo.setText(novo.getTitulo());
-                txtautor.setText(novo.getAutor());
-                txtvalor.setText(String.valueOf(novo.getValor()));
-                txteditora.setText(novo.getEditora());
-                txtdescricao.setText(novo.getDescricao());
+                txtTitulo.setText(novo.getTitulo());
+                TxtAutor.setText(novo.getAutor());
+                txtCusto.setText(String.valueOf(novo.getValor()));
+                txtEditora.setText(novo.getEditora());
+                txtDesc.setText(novo.getDescricao());
+                //lblimagem.setText(novo.getImagem());
             }
 
         }
@@ -389,6 +366,21 @@ public class Principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_LabelPesquisarMouseClicked
+
+    private void txtvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtvalorActionPerformed
+
+    private void TxtAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAutorActionPerformed
+
+    private void btnCarrinho1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinho1ActionPerformed
+        ProdutosCONEC novo = new ProdutosCONEC();
+        ArrayList<Produto> lista = novo.listarLivros();
+        Carrinho.listanova.add(lista.get(0));
+           
+    }//GEN-LAST:event_btnCarrinho1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,6 +420,8 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelPesquisar;
+    private javax.swing.JTextField TxtAutor;
+    private javax.swing.JButton btnCarrinho1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -442,11 +436,39 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txtautor;
+    private javax.swing.JTextField txtCusto;
+    private javax.swing.JTextField txtDesc;
+    private javax.swing.JTextField txtEditora;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtdescricao;
-    private javax.swing.JTextField txteditora;
-    private javax.swing.JTextField txtitulo;
     private javax.swing.JTextField txtpesquisar;
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarlivrosnaprincipal(){
+        
+        try {
+            //usa a funcao de listar os livros na Prodostos comprados conec e mostaros na tela
+            ProdutosCONEC novo = new ProdutosCONEC();
+            
+            ArrayList<Produto> lista = novo.listarLivros();
+            
+            txtNome.setText(lista.get(0).getTitulo());
+            txtvalor.setText("R$ "+ Double.toString(lista.get(0).getValor()));
+            txtdescricao.setText(lista.get(0).getDescricao());
+            
+            
+           
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Mostrar jogos na principal " + e.getMessage());
+            
+        }
+        
+        
+        
+        
+    }
+
 }
