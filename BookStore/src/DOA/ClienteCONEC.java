@@ -23,6 +23,10 @@ public class ClienteCONEC {
     ResultSet rs;
     ArrayList<Cliente> lista = new ArrayList<>();
     
+    /**
+     *
+     * @param x
+     */
     public void cadastrarCliente(Cliente x){
         
         String sql = "insert into usuarios (id,nome,endereco,telefone,cpf,senha,email,bookcoin) values(?,?,?,?,?,?,?,0)";
@@ -50,6 +54,11 @@ public class ClienteCONEC {
         
     }
     
+    /**
+     *
+     * @param novo
+     * @return
+     */
     public ResultSet AutentificarOCadastro(Cliente novo){
         
         //Recebe o cliente
@@ -75,7 +84,11 @@ public class ClienteCONEC {
         
     }
     
-    
+    /**
+     *
+     * @param Contaaseralterada
+     * @return
+     */
     public ArrayList<Cliente>setacadastros(String Contaaseralterada){
         
         String sql = "select * from usuarios where senha = ? ";
@@ -119,7 +132,11 @@ public class ClienteCONEC {
         
     }
     
-  
+    /**
+     *
+     * @param novo
+     * @param senhadig
+     */
     public void AlterarCadastro( Cliente novo,String senhadig){
         
         
