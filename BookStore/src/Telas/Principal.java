@@ -287,16 +287,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Novidades");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
+
+        txtDesc.setEditable(false);
         jPanel3.add(txtDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 190, 100));
+
+        txtTitulo.setEditable(false);
         jPanel3.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, -1));
 
+        TxtAutor.setEditable(false);
         TxtAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtAutorActionPerformed(evt);
             }
         });
         jPanel3.add(TxtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 130, -1));
+
+        txtCusto.setEditable(false);
         jPanel3.add(txtCusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 130, -1));
+
+        txtEditora.setEditable(false);
         jPanel3.add(txtEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 130, -1));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -304,72 +313,90 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
 
+        txtnome1.setEditable(false);
         txtnome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnome1ActionPerformed(evt);
             }
         });
 
+        txtpreco1.setEditable(false);
         txtpreco1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpreco1ActionPerformed(evt);
             }
         });
 
+        txtdesc1.setEditable(false);
         txtdesc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdesc1ActionPerformed(evt);
             }
         });
 
+        txtnome2.setEditable(false);
         txtnome2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnome2ActionPerformed(evt);
             }
         });
 
+        txtpreco2.setEditable(false);
         txtpreco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpreco2ActionPerformed(evt);
             }
         });
 
+        txtdesc2.setEditable(false);
         txtdesc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdesc2ActionPerformed(evt);
             }
         });
 
+        txtpreco5.setEditable(false);
         txtpreco5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpreco5ActionPerformed(evt);
             }
         });
 
+        txtnome4.setEditable(false);
         txtnome4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnome4ActionPerformed(evt);
             }
         });
 
+        txtdesc5.setEditable(false);
         txtdesc5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdesc5ActionPerformed(evt);
             }
         });
 
+        txtpreco3.setEditable(false);
+
+        txtdesc3.setEditable(false);
+
+        txtnome3.setEditable(false);
+
+        txtpreco4.setEditable(false);
         txtpreco4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpreco4ActionPerformed(evt);
             }
         });
 
+        txtdesc4.setEditable(false);
         txtdesc4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdesc4ActionPerformed(evt);
             }
         });
 
+        txtnome5.setEditable(false);
         txtnome5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnome5ActionPerformed(evt);
@@ -424,25 +451,34 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        txtNome.setEditable(false);
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
+        txtdescricao.setEditable(false);
         txtdescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdescricaoActionPerformed(evt);
             }
         });
 
+        txtpreco.setEditable(false);
         txtpreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtprecoActionPerformed(evt);
             }
         });
 
-        Painel1.setBackground(new java.awt.Color(0, 153, 153));
+        Painel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        txtnome6.setEditable(false);
+
+        txtpreco6.setEditable(false);
+
+        txtdesc6.setEditable(false);
 
         btnCarrinho6.setBackground(new java.awt.Color(51, 255, 51));
         btnCarrinho6.setText("+CARRINHO");
@@ -487,6 +523,12 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtnome9.setEditable(false);
+
+        txtpreco9.setEditable(false);
+
+        txtdesc9.setEditable(false);
+
         btnCarrinho9.setBackground(new java.awt.Color(51, 255, 51));
         btnCarrinho9.setText("+CARRINHO");
         btnCarrinho9.addActionListener(new java.awt.event.ActionListener() {
@@ -529,6 +571,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        txtnome7.setEditable(false);
+
+        txtpreco7.setEditable(false);
+
+        txtdesc7.setEditable(false);
 
         btnCarrinho7.setBackground(new java.awt.Color(51, 255, 51));
         btnCarrinho7.setText("+CARRINHO");
@@ -573,6 +621,12 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtnome11.setEditable(false);
+
+        txtpreco11.setEditable(false);
+
+        txtdesc11.setEditable(false);
+
         btnCarrinho11.setBackground(new java.awt.Color(51, 255, 51));
         btnCarrinho11.setText("+CARRINHO");
         btnCarrinho11.addActionListener(new java.awt.event.ActionListener() {
@@ -616,6 +670,12 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtnome8.setEditable(false);
+
+        txtpreco8.setEditable(false);
+
+        txtdesc8.setEditable(false);
+
         btnCarrinho8.setBackground(new java.awt.Color(51, 255, 51));
         btnCarrinho8.setText("+CARRINHO");
         btnCarrinho8.addActionListener(new java.awt.event.ActionListener() {
@@ -658,6 +718,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        txtnome10.setEditable(false);
+
+        txtpreco10.setEditable(false);
+
+        txtdesc10.setEditable(false);
 
         btnCarrinho10.setBackground(new java.awt.Color(51, 255, 51));
         btnCarrinho10.setText("+CARRINHO");
@@ -865,7 +931,7 @@ public class Principal extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel5);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 750, 300));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 750, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -875,7 +941,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -1358,7 +1424,7 @@ public class Principal extends javax.swing.JFrame {
             }
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Mostrar jogos na principal " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Mostrar livros na principal " + e.getMessage());
             
         }
         

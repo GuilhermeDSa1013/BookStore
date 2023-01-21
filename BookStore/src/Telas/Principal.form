@@ -65,7 +65,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" min="-2" pref="489" max="-2" attributes="0"/>
+          <Component id="jPanel3" pref="500" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -346,6 +346,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDesc">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="330" width="190" height="100"/>
@@ -353,6 +356,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTitulo">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="210" width="130" height="-1"/>
@@ -360,6 +366,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtAutor">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtAutorActionPerformed"/>
           </Events>
@@ -370,6 +379,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCusto">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="270" width="130" height="-1"/>
@@ -377,6 +389,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEditora">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="300" width="130" height="-1"/>
@@ -390,7 +405,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="210" y="190" width="750" height="300"/>
+              <AbsoluteConstraints x="210" y="190" width="750" height="310"/>
             </Constraint>
           </Constraints>
 
@@ -610,6 +625,9 @@
                 <Component class="javax.swing.JLabel" name="Imagem2">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnome1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnome1ActionPerformed"/>
                   </Events>
@@ -617,11 +635,17 @@
                 <Component class="javax.swing.JLabel" name="Imagem1">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreco1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpreco1ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdesc1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdesc1ActionPerformed"/>
                   </Events>
@@ -629,16 +653,25 @@
                 <Component class="javax.swing.JLabel" name="imagem3">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnome2">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnome2ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreco2">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpreco2ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdesc2">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdesc2ActionPerformed"/>
                   </Events>
@@ -646,34 +679,58 @@
                 <Component class="javax.swing.JLabel" name="imagem5">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreco5">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpreco5ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnome4">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnome4ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdesc5">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdesc5ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreco3">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdesc3">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="imagem4">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnome3">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreco4">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpreco4ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdesc4">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdesc4ActionPerformed"/>
                   </Events>
@@ -681,6 +738,9 @@
                 <Component class="javax.swing.JLabel" name="imagem6">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnome5">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnome5ActionPerformed"/>
                   </Events>
@@ -752,16 +812,25 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNome">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtdescricao">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdescricaoActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtpreco">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtprecoActionPerformed"/>
                   </Events>
@@ -769,7 +838,7 @@
                 <Container class="javax.swing.JPanel" name="Painel1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="99" green="99" red="0" type="rgb"/>
+                      <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -821,10 +890,19 @@
                     <Component class="javax.swing.JLabel" name="imagem7">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnome6">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtpreco6">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtdesc6">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCarrinho6">
                       <Properties>
@@ -889,10 +967,19 @@
                     <Component class="javax.swing.JLabel" name="imagem10">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnome9">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtpreco9">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtdesc9">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCarrinho9">
                       <Properties>
@@ -957,10 +1044,19 @@
                     <Component class="javax.swing.JLabel" name="imagem8">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnome7">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtpreco7">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtdesc7">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCarrinho7">
                       <Properties>
@@ -1025,10 +1121,19 @@
                     <Component class="javax.swing.JLabel" name="imagem12">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnome11">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtpreco11">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtdesc11">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCarrinho11">
                       <Properties>
@@ -1093,10 +1198,19 @@
                     <Component class="javax.swing.JLabel" name="imagem9">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnome8">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtpreco8">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtdesc8">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCarrinho8">
                       <Properties>
@@ -1161,10 +1275,19 @@
                     <Component class="javax.swing.JLabel" name="imagem11">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnome10">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtpreco10">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtdesc10">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCarrinho10">
                       <Properties>

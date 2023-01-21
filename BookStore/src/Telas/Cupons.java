@@ -4,6 +4,12 @@
  */
 package Telas;
 
+import DOA.CupomCONEC;
+import Model.Cupom;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guilh
@@ -15,6 +21,7 @@ public class Cupons extends javax.swing.JFrame {
      */
     public Cupons() {
         initComponents();
+        listarCuponsnaCupom();
     }
 
     /**
@@ -36,6 +43,8 @@ public class Cupons extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelCupons = new javax.swing.JTable();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -176,17 +185,36 @@ public class Cupons extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tabelCupons.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Código", "Valor", "Validade"
+            }
+        ));
+        jScrollPane2.setViewportView(tabelCupons);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(275, 275, 275)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(486, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane2)
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -299,5 +327,45 @@ public class Cupons extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tabelCupons;
     // End of variables declaration//GEN-END:variables
+
+
+    
+        private void listarCuponsnaCupom(){
+        
+        //Lista os produtos cadastrados  na tabela 
+        try {
+          
+            CupomCONEC novo = new CupomCONEC();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelCupons.getModel();
+            model.setNumRows(0);
+            
+            //Joga o objeto num array para poder mostra-lo numa tabela
+           
+            ArrayList<Cupom> novalista = novo.listarcupons();
+            
+            
+            for(int num = 0; num < novalista.size(); num++){
+                
+                model.addRow(new Object[]{
+                    //seta as informaçoes desejadas em cada coluna da tabela
+                    
+                    novalista.get(num).getCodigo(),
+                    "R$ "+novalista.get(num).getValor(),
+                    novalista.get(num).getValidade()+ " dias",
+                    
+
+                });
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Listar Cupons na cupom  " + e.getMessage());
+        }
+        
+    }
+    
+
 }

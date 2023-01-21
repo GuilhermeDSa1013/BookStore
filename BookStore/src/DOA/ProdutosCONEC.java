@@ -60,7 +60,7 @@ public class ProdutosCONEC {
             
             if(rs.next()){
                 
-                //Se houver tal produto no banco ele retorna as informações no objetto
+                //Se houver tal produto no banco ele retorna as informações no objeto
                 novo.setTitulo(rs.getString("titulo"));
                 novo.setAutor(rs.getString("autor"));
                 novo.setEditora(rs.getString("editora"));

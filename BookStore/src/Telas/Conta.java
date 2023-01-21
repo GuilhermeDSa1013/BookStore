@@ -486,11 +486,13 @@ public class Conta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarregarActionPerformed
 
     private void btnAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlteraActionPerformed
+       
+        if(txtCpf.getText().isEmpty() || txtEmail.getText().isEmpty() ||txtEndereco.getText().isEmpty() ||txtNome.getText().isEmpty() ||txtTelefone.getText().isEmpty() ){
         //Botao faz a alterção e ja mostra na tabela
-        
+        }else{
         listavaloresdaconta(txtSenhacomando.getText());
         AlterarCadastro();   
-        
+        }
       
         JOptionPane.showMessageDialog(null, "Alterações feitas com sucesso!");
     }//GEN-LAST:event_btnAlteraActionPerformed

@@ -224,7 +224,7 @@ public class Login extends javax.swing.JFrame {
             } else {
 
                 //Não tem no banco logo não é permitida a entrada
-                JOptionPane.showMessageDialog(null, "Não existe esse usuario!" + "\n" + "Crie uma conta ou entre em uma existente!");
+                JOptionPane.showMessageDialog(null, "Senha ou Email errados!" + "\n" + "Crie uma conta ou entre em uma existente!");
 
             }
 

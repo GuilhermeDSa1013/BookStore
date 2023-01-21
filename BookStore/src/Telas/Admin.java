@@ -4,6 +4,15 @@
  */
 package Telas;
 
+
+import DOA.CupomCONEC;
+import DOA.ProdutosCONEC;
+import Model.Cupom;
+import Model.Produto;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guilh
@@ -15,6 +24,8 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        listarProdutosCadastrados();
+        listarCuponsADM();
     }
 
     /**
@@ -37,9 +48,9 @@ public class Admin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelProdsADM = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabelCuponsADM = new javax.swing.JTable();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -142,12 +153,12 @@ public class Admin extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("livros adicionados");
+        jLabel2.setText("Livros adicionados");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("cupons adicionados");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelProdsADM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -158,9 +169,9 @@ public class Admin extends javax.swing.JFrame {
                 "Título", "Autor", "Editora", "Valor"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelProdsADM);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelCuponsADM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -171,7 +182,7 @@ public class Admin extends javax.swing.JFrame {
                 "Código", "Valor", "Validade"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tabelCuponsADM);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -185,9 +196,9 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(186, 186, 186))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -200,10 +211,10 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,7 +308,78 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tabelCuponsADM;
+    private javax.swing.JTable tabelProdsADM;
     // End of variables declaration//GEN-END:variables
+
+    private void listarProdutosCadastrados(){
+        
+        //Lista os produtos cadastrados  na tabela 
+        try {
+          
+            ProdutosCONEC novo = new ProdutosCONEC();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelProdsADM.getModel();
+            model.setNumRows(0);
+            
+            //Joga o objeto num array para poder mostra-lo numa tabela
+           
+            ArrayList<Produto> novalista = novo.listarLivros();
+            
+            
+            for(int num = 0; num < novalista.size(); num++){
+                
+                model.addRow(new Object[]{
+                    //seta as informaçoes desejadas em cada coluna da tabela
+                    
+                    novalista.get(num).getTitulo(),
+                    novalista.get(num).getAutor(),
+                    novalista.get(num).getEditora(),
+                    novalista.get(num).getValor(),
+
+                });
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Listar Produtos cadastrados " + e.getMessage());
+        }
+        
+    }
+
+    
+    private void listarCuponsADM(){
+        
+        //Lista os produtos cadastrados  na tabela 
+        try {
+          
+            CupomCONEC novo = new CupomCONEC();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelCuponsADM.getModel();
+            model.setNumRows(0);
+            
+            //Joga o objeto num array para poder mostra-lo numa tabela
+           
+            ArrayList<Cupom> novalista = novo.listarcupons();
+            
+            
+            for(int num = 0; num < novalista.size(); num++){
+                
+                model.addRow(new Object[]{
+                    //seta as informaçoes desejadas em cada coluna da tabela
+                    
+                    novalista.get(num).getCodigo(),
+                    "R$ "+novalista.get(num).getValor(),
+                    novalista.get(num).getValidade()+ " dias",
+                    
+
+                });
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Listar Cupons  " + e.getMessage());
+        }
+        
+    }
+    
+    
 }

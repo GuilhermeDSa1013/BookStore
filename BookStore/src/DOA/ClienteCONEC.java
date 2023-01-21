@@ -58,6 +58,7 @@ public class ClienteCONEC {
         try {
             //Procura no banco de dados as duas variaveis
             String sql = "select * from usuarios where email = ? and senha = ?";
+            
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,novo.getEmail());
             pstm.setString(2, novo.getSenha());

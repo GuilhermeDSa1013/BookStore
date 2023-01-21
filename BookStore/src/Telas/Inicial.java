@@ -126,6 +126,16 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
 
+        txtAutor1.setEditable(false);
+
+        txtEditora1.setEditable(false);
+
+        txtdescricao1.setEditable(false);
+
+        txtNome1.setEditable(false);
+
+        txtValor1.setEditable(false);
+
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
