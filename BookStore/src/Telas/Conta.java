@@ -10,6 +10,7 @@ import Model.SenhaCompara;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import Telas.Login;
+import TelasUtil.LimitaCaracteres;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,13 @@ public class Conta extends javax.swing.JFrame {
      */
     public Conta() {
         initComponents();
+        
+        txtNome.setDocument(new LimitaCaracteres(50, LimitaCaracteres.TipoEntrada.NOME));
+        txtEndereco.setDocument(new LimitaCaracteres(100, LimitaCaracteres.TipoEntrada.ENDERECO));
+        txtCpf.setDocument(new LimitaCaracteres(11, LimitaCaracteres.TipoEntrada.CPF));
+        txtTelefone.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.TELEFONE));
+        txtSenhacomando.setDocument(new LimitaCaracteres(12, LimitaCaracteres.TipoEntrada.SENHA));
+        txtEmail.setDocument(new LimitaCaracteres(50, LimitaCaracteres.TipoEntrada.EMAIL));
    
     }
 
@@ -487,6 +495,28 @@ public class Conta extends javax.swing.JFrame {
 
     private void btnAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlteraActionPerformed
        
+        //Deixando os campos obrigatórios
+        if(txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo Nome é obrigatório, favor preencher", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(txtEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo Email é obrigatório, favor preencher", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(txtCpf.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo CPF é obrigatório, favor preencher", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(txtTelefone.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo Telefone é obrigatório, favor preencher", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(txtEndereco.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo Endereço é obrigatório, favor preencher", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         if(txtCpf.getText().isEmpty() || txtEmail.getText().isEmpty() ||txtEndereco.getText().isEmpty() ||txtNome.getText().isEmpty() ||txtTelefone.getText().isEmpty() ){
         //Botao faz a alterção e ja mostra na tabela
         }else{
