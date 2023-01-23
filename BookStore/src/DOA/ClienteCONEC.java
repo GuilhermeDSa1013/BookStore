@@ -149,6 +149,32 @@ public class ClienteCONEC {
         }
     }
        
+      
+    
+    public void excluirCliente(Cliente x){
         
+        String url = "delete from usuarios where senha = ?";
+        
+        conn = new Conexao().conectaBD();
+        
+        
+        try {
+            
+            rue = conn.prepareStatement(url);
+            
+            rue.setString(1,x.getSenha());
+            
+            rue.execute();
+            rue.close();;
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showConfirmDialog(null, "Excluir cliente" + erro.getMessage());
+        }
+        
+        
+        
+        
+    }
    
 }

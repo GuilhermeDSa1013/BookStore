@@ -30,7 +30,7 @@ public class ProdutosCONEC {
             rue.setDouble(3,x.getValor());
             rue.setString(4,x.getEditora());
             rue.setString(5,x.getDescricao());
-            rue.setBytes(6,x.getImagem());
+            //rue.setBytes(6,x.getImagem());
             
             rue.execute();
             rue.close();
@@ -105,12 +105,12 @@ public class ProdutosCONEC {
                     Produto novo = new Produto(0,"","",0,"","",null);
                     
                     //Adiciona a lista todos os produtos existentes
+                    novo.setId(rs.getInt("id"));
                     novo.setTitulo(rs.getString("titulo"));
                     novo.setAutor(rs.getString("autor"));
                     novo.setValor(rs.getDouble("valor"));
                     novo.setEditora(rs.getString("editora"));
-                    novo.setDescricao(rs.getString("descricao"));
-                    novo.setImagem(rs.getBytes("imagem"));
+                    //novo.setImagem(rs.getBytes("imagem"));
                         
 
                     lista.add(novo);
@@ -127,6 +127,57 @@ public class ProdutosCONEC {
         }
          
         
-    
+     public void excluirProdutos(Produto x){
+        
+        String url = "delete from prods where id = ?";
+        
+        conn = new Conexao().conectaBD();
+        
+        
+        try {
+            
+            rue = conn.prepareStatement(url);
+            
+            rue.setInt(1,x.getId());
+            
+            rue.execute();
+            rue.close();;
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showConfirmDialog(null, "Excluir Produto " + erro.getMessage());
+        }
+        
+   
+    }
+     
+     public void ADMaltera(Produto x){
+        
+        
+        String sql = "update prods set titulo = ? , autor = ? ,valor = ? , editora  = ? , descricao = ?, imagem = ? where id = ?";
+        conn = new Conexao().conectaBD();
+        
+        
+        try {
+            
+            rue = conn.prepareStatement(sql);
+            rue.setInt(7, x.getId());
+            
+            rue.setString(1,x.getTitulo());
+            rue.setString(2,x.getAutor());
+            rue.setDouble(3,x.getValor());
+            rue.setString(4,x.getEditora());
+            rue.setString(5, x.getDescricao());
+            //rue.setBytes(6,x.getImagem());
+            
+            
+            rue.execute();
+            rue.close();
+                  
+        } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null,"Alterar Produto" + erro.getMessage() );
+        }
+    }
         
 }

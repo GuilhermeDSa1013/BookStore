@@ -5,6 +5,7 @@
 package DOA;
 
 
+import Model.Prods_Comprados;
 import Model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,6 +60,30 @@ public class Prods_CompradosCONEC {
     }
     
     
-    
+    public void CadastrarProds_comprados(Prods_Comprados x){
+        
+        String sql = "insert into produtos_comprados (senha,produto_titulo,valor) values(?,?,?)";
+        conn = new Conexao().conectaBD();
+        
+        try {
+            
+            rue = conn.prepareStatement(sql);
+            
+            rue.setString(1, x.getSenha());
+            rue.setString(2,x.getTitulo());
+            rue.setDouble(3,x.getValor());
+            
+            
+            
+            rue.execute();
+            rue.close();
+                    
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Cadastrar Prods_comprados" + erro.getMessage() );
+        }
+        
+        
+        
+    }
     
 }

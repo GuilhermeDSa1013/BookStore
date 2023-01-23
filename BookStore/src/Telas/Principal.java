@@ -1334,7 +1334,7 @@ public class Principal extends javax.swing.JFrame {
                 txtnome6.setText(lista.get(6).getTitulo());
                 txtpreco6.setText("R$ "+ Double.toString(lista.get(6).getValor()));
                 txtdesc6.setText(lista.get(6).getDescricao());
-                
+                //imagem7.setText(text);
                 
             }else{
                 
@@ -1350,6 +1350,7 @@ public class Principal extends javax.swing.JFrame {
                 txtnome7.setText(lista.get(7).getTitulo());
                 txtpreco7.setText("R$ "+ Double.toString(lista.get(7).getValor()));
                 txtdesc7.setText(lista.get(7).getDescricao());
+                //imagem7.setText(text);
                     
             }else{
                 
@@ -1365,6 +1366,7 @@ public class Principal extends javax.swing.JFrame {
                 txtnome8.setText(lista.get(8).getTitulo());
                 txtpreco8.setText("R$ "+ Double.toString(lista.get(8).getValor()));
                 txtdesc8.setText(lista.get(8).getDescricao());
+                //imagem7.setText(text);
                     
             }else{
                 
@@ -1380,6 +1382,7 @@ public class Principal extends javax.swing.JFrame {
                 txtnome9.setText(lista.get(9).getTitulo());
                 txtpreco9.setText("R$ "+ Double.toString(lista.get(9).getValor()));
                 txtdesc9.setText(lista.get(9).getDescricao());
+                //imagem7.setText(text);
                
                 
             }else{
@@ -1397,6 +1400,7 @@ public class Principal extends javax.swing.JFrame {
                 txtnome10.setText(lista.get(10).getTitulo());
                 txtpreco10.setText("R$ "+ Double.toString(lista.get(10).getValor()));
                 txtdesc10.setText(lista.get(10).getDescricao());
+                //imagem7.setText(text);
                     
             }else{
                 
@@ -1412,6 +1416,7 @@ public class Principal extends javax.swing.JFrame {
                 txtnome11.setText(lista.get(11).getTitulo());
                 txtpreco11.setText("R$ "+ Double.toString(lista.get(11).getValor()));
                 txtdesc11.setText(lista.get(11).getDescricao());
+                //imagem7.setText(text);
                     
             }else{
                 

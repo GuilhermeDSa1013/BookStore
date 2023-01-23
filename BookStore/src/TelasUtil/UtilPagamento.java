@@ -17,53 +17,53 @@ public class UtilPagamento {
         
         if (x == "PP") {
             
-           valorfinal = (0.92 * y) - desconto;
+           valorfinal = 1.12*((0.92 * y) - desconto);
             return valorfinal;
            
         } else if(x == "P20") {
             
-            valorfinal = ((0.92 * y) * 1.1) - desconto;
+            valorfinal = 1.12*(((0.92 * y) * 1.1) - desconto);
             return valorfinal;
             
         }else if(x == "P10") {
             
-            valorfinal = ((0.92 * y) * 1.15) - desconto;
+            valorfinal = 1.12*(((0.92 * y) * 1.15) - desconto);
             return valorfinal;
         }else if(x == "BP") {
             
-            valorfinal =((0.95 * y) - desconto);
+            valorfinal =  1.12*(((0.95 * y) - desconto));
             return valorfinal;
         }else if(x == "B20") {
             
-            valorfinal =((0.95 * y) * 1.1) - desconto;
+            valorfinal =  1.12*(((0.95 * y) * 1.1) - desconto);
             return valorfinal;
         }else if(x == "B10") {
             
-            valorfinal =((0.95 * y) * 1.15) - desconto;
+            valorfinal =  1.12*(((0.95 * y) * 1.15) - desconto);
             return valorfinal;
         }else if(x == "CDP") {
             
-            valorfinal =((0.93 * y) - desconto);
+            valorfinal =  1.12*(((0.93 * y) - desconto));
             return valorfinal;
         }else if(x == "CD20") {
             
-            valorfinal = ((0.93 * y) * 1.15) - desconto;
+            valorfinal = 1.12*(((0.93 * y) * 1.15) - desconto);
             return valorfinal;
         }else if(x == "CD10") {
             
-            valorfinal = ((0.93 * y) * 1.15) - desconto;
+            valorfinal = 1.12*(((0.93 * y) * 1.15) - desconto);
             return valorfinal;
         }else if(x == "CCP") {
             
-            valorfinal =(y - desconto);
+            valorfinal =  1.12*((y - desconto));
             return valorfinal;
         }else if(x == "CC20") {
             
-            valorfinal = ( y * 1.15) - desconto;
+            valorfinal = 1.12*(( y * 1.15) - desconto);
             return valorfinal;
         }else if(x == "CC10") {
             
-            valorfinal = ( y * 1.15) - desconto;
+            valorfinal = 1.12*(( y * 1.15) - desconto);
             return valorfinal;
         }else{
             

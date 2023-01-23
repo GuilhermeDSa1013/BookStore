@@ -5,7 +5,9 @@
 package Telas;
 
 import DOA.CupomCONEC;
+import DOA.Prods_CompradosCONEC;
 import Model.Cupom;
+import Model.Prods_Comprados;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import TelasUtil.UtilPagamento;
@@ -23,6 +25,7 @@ public class Pagamento extends javax.swing.JFrame {
         initComponents();
         txtsubtpagamnento.setText(Carrinho.txtSoma.getText());
         txtdescontocupom.setText("0.0");
+        txtimposto.setText("");
     }
 
     /**
@@ -68,7 +71,7 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtimposto = new javax.swing.JTextField();
         btnAcaoCupom = new javax.swing.JButton();
         txtdescontocupom = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -284,7 +287,7 @@ public class Pagamento extends javax.swing.JFrame {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/visa.jpg"))); // NOI18N
 
-        jTextField5.setEditable(false);
+        txtimposto.setEditable(false);
 
         btnAcaoCupom.setText("OK");
         btnAcaoCupom.addActionListener(new java.awt.event.ActionListener() {
@@ -298,6 +301,11 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel18.setText("DESCONTO:");
 
         btnPagar.setText("PAGAR");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -341,7 +349,7 @@ public class Pagamento extends javax.swing.JFrame {
                                             .addGap(159, 159, 159)))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel10)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtimposto, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel9))
                                     .addGap(97, 97, 97)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -411,7 +419,7 @@ public class Pagamento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCupom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtimposto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAcaoCupom))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -452,7 +460,8 @@ public class Pagamento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -603,6 +612,11 @@ public class Pagamento extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtsubtpagamnentoActionPerformed
 
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        cadastra_produto();
+        JOptionPane.showMessageDialog(null,"Pagamento Confirmado!" +"\n"+"O pedido será enviado para seu endereço!");
+    }//GEN-LAST:event_btnPagarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -670,10 +684,10 @@ public class Pagamento extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField txtCupom;
     private javax.swing.JRadioButton txtPrazopadrao;
     private javax.swing.JTextField txtdescontocupom;
+    private javax.swing.JTextField txtimposto;
     private javax.swing.JRadioButton txtprazo10;
     private javax.swing.JRadioButton txtprazo20;
     private javax.swing.JTextField txtsubtpagamnento;
@@ -682,31 +696,91 @@ public class Pagamento extends javax.swing.JFrame {
 
         private void cupom(int x){
             
-        try{
+            try{
 
-           CupomCONEC cupom = new CupomCONEC();
-           
-           Cupom novo = cupom.AutentificarOCupom(x);
+               CupomCONEC cupom = new CupomCONEC();
 
-            if (novo == null){
-               
-                JOptionPane.showMessageDialog(null, "Cupom não existe!");
-                txtdescontocupom.setText("0.0");
-            } else {
-                
-                Double e = novo.getValor();
-                txtdescontocupom.setText(e.toString());
-                
+               Cupom novo = cupom.AutentificarOCupom(x);
+
+                if (novo == null){
+
+                    JOptionPane.showMessageDialog(null, "Cupom não existe!");
+                    txtdescontocupom.setText("0.0");
+                } else {
+
+                    Double e = novo.getValor();
+                    txtdescontocupom.setText(e.toString());
+
+                }
+
+
+            }catch(Exception erro){
+                JOptionPane.showMessageDialog(null,"Cupom " + erro.getMessage());
+
             }
-
-
-        }catch(Exception erro){
-            JOptionPane.showMessageDialog(null,"Cupom " + erro.getMessage());
-
-        }
         
             
             
         }
+        
+        
+        private void cadastra_produto(){
+            
+            if(!Carrinho.txtTitulo1.getText().isEmpty()){
 
+                Prods_Comprados novo = new Prods_Comprados("","",0.0);
+                novo.setSenha(Login.txtSenha.getText());
+                novo.setTitulo(Carrinho.txtTitulo1.getText());
+                novo.setValor(Double.parseDouble(Carrinho.txtValor1.getText()));
+                Prods_CompradosCONEC conecta = new Prods_CompradosCONEC();
+                conecta.CadastrarProds_comprados(novo);
+            }
+
+            if(!Carrinho.txtTitulo2.getText().isEmpty()){
+
+                Prods_Comprados novo2 = new Prods_Comprados("","",0.0);
+                novo2.setSenha(Login.txtSenha.getText());
+                novo2.setTitulo(Carrinho.txtTitulo2.getText());
+                novo2.setValor(Double.parseDouble(Carrinho.txtValor2.getText()));
+                Prods_CompradosCONEC conecta2 = new Prods_CompradosCONEC();
+                conecta2.CadastrarProds_comprados(novo2);
+
+
+            }
+
+            if(!Carrinho.txtTitulo4.getText().isEmpty()){
+
+                Prods_Comprados novo4 = new Prods_Comprados("","",0.0);
+                novo4.setSenha(Login.txtSenha.getText());
+                novo4.setTitulo(Carrinho.txtTitulo4.getText());
+                novo4.setValor(Double.parseDouble(Carrinho.txtValor4.getText()));
+                Prods_CompradosCONEC conecta4 = new Prods_CompradosCONEC();
+                conecta4.CadastrarProds_comprados(novo4);
+
+            }
+
+            if(!Carrinho.txtTitulo5.getText().isEmpty()){
+
+                Prods_Comprados novo5 = new Prods_Comprados("","",0.0);
+                novo5.setSenha(Login.txtSenha.getText());
+                novo5.setTitulo(Carrinho.txtTitulo5.getText());
+                novo5.setValor(Double.parseDouble(Carrinho.txtValor5.getText()));
+                Prods_CompradosCONEC conecta5 = new Prods_CompradosCONEC();
+                conecta5.CadastrarProds_comprados(novo5);
+
+            }
+
+            if(!Carrinho.txtTitulo6.getText().isEmpty()){
+
+                Prods_Comprados novo6 = new Prods_Comprados("","",0.0);
+                novo6.setSenha(Login.txtSenha.getText());
+                novo6.setTitulo(Carrinho.txtTitulo6.getText());
+                novo6.setValor(Double.parseDouble(Carrinho.txtValor6.getText()));
+                Prods_CompradosCONEC conecta6 = new Prods_CompradosCONEC();
+                conecta6.CadastrarProds_comprados(novo6);
+
+            }
+
+            
+        }
 }

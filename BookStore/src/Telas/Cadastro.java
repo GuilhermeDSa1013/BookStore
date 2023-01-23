@@ -287,7 +287,7 @@ public class Cadastro extends javax.swing.JFrame {
                 cliente.cadastrarCliente(novo);
                 
                 JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
-                Principal y = new Principal();
+                Login y = new Login();
                 this.dispose();
                 y.setVisible(true);
                 
