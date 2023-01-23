@@ -30,7 +30,7 @@ public class ProdutosCONEC {
             rue.setDouble(3,x.getValor());
             rue.setString(4,x.getEditora());
             rue.setString(5,x.getDescricao());
-            //rue.setBytes(6,x.getImagem());
+            rue.setBytes(6,x.getImagem());
             
             rue.execute();
             rue.close();
@@ -66,7 +66,7 @@ public class ProdutosCONEC {
                 novo.setEditora(rs.getString("editora"));
                 novo.setValor(rs.getDouble("valor"));
                 novo.setDescricao(rs.getString("descricao"));
-                //novo.setImagem(rs.getBytes("imagem"));
+                novo.setImagem(rs.getBytes("imagem"));
                 
                 
                 
@@ -83,48 +83,49 @@ public class ProdutosCONEC {
             return null;
         
         }
-        }
+    }
        
         
-         public ArrayList<Produto> listarLivros(){
-      
-        //Vai na tabela de livros
-        String url = "select * from prods ";
-      
-        
-        conn = new Conexao().conectaBD();
-        
-            try {
+    public ArrayList<Produto> listarLivros(){
 
-                rue = conn.prepareStatement(url);
+    //Vai na tabela de livros
+    String url = "select * from prods ";
 
-                rs = rue.executeQuery();
 
-                while(rs.next()){
-                       
-                    Produto novo = new Produto(0,"","",0,"","",null);
-                    
-                    //Adiciona a lista todos os produtos existentes
-                    novo.setId(rs.getInt("id"));
-                    novo.setTitulo(rs.getString("titulo"));
-                    novo.setAutor(rs.getString("autor"));
-                    novo.setValor(rs.getDouble("valor"));
-                    novo.setEditora(rs.getString("editora"));
-                    //novo.setImagem(rs.getBytes("imagem"));
-                        
+    conn = new Conexao().conectaBD();
 
-                    lista.add(novo);
+        try {
 
-                }
+            rue = conn.prepareStatement(url);
 
-            } catch (SQLException erro) {
-                JOptionPane.showMessageDialog(null," Listar livros " +  erro.getMessage());
-                return null;
+            rs = rue.executeQuery();
+
+            while(rs.next()){
+
+                Produto novo = new Produto(0,"","",0,"","",null);
+
+                //Adiciona a lista todos os produtos existentes
+                novo.setId(rs.getInt("id"));
+                novo.setTitulo(rs.getString("titulo"));
+                novo.setAutor(rs.getString("autor"));
+                novo.setValor(rs.getDouble("valor"));
+                novo.setEditora(rs.getString("editora"));
+                novo.setDescricao(rs.getString("descricao"));
+                novo.setImagem(rs.getBytes("imagem"));
+
+
+                lista.add(novo);
 
             }
-            
-            return lista;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null," Listar livros " +  erro.getMessage());
+            return null;
+
         }
+
+        return lista;
+    }
          
         
      public void excluirProdutos(Produto x){
@@ -141,7 +142,7 @@ public class ProdutosCONEC {
             rue.setInt(1,x.getId());
             
             rue.execute();
-            rue.close();;
+            rue.close();
             
         } catch (SQLException erro) {
             
@@ -168,7 +169,7 @@ public class ProdutosCONEC {
             rue.setDouble(3,x.getValor());
             rue.setString(4,x.getEditora());
             rue.setString(5, x.getDescricao());
-            //rue.setBytes(6,x.getImagem());
+            rue.setBytes(6,x.getImagem());
             
             
             rue.execute();

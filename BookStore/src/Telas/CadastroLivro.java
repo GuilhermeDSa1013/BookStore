@@ -6,11 +6,27 @@ package Telas;
 import DOA.ProdutosCONEC;
 import Model.Produto;
 import TelasUtil.LimitaCaracteres;
+import java.awt.AlphaComposite;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author guilh
  */
 public class CadastroLivro extends javax.swing.JFrame {
+    
+    private File imagem;
+    private Produto novo = new Produto(0,"","",0,"","",null);
+    
 
     /**
      * Creates new form CadastroCupom
@@ -21,7 +37,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         txttitulo.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.TITULO));
         txtautor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.AUTOR));
         txteditora.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.EDITORA));
-        txtdescricao.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.DESCRICAO));
+        txtdescricao.setDocument(new LimitaCaracteres(100, LimitaCaracteres.TipoEntrada.DESCRICAO));
         txtvalor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.VALOR));
         
         txtdescricao.setLineWrap(true);
@@ -53,7 +69,9 @@ public class CadastroLivro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtdescricao = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        painelImg = new javax.swing.JPanel();
+        lbImagem = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         jLabel6.setText("jLabel6");
 
@@ -103,9 +121,37 @@ public class CadastroLivro extends javax.swing.JFrame {
         txtdescricao.setRows(5);
         jScrollPane1.setViewportView(txtdescricao);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Imagem");
 
-        jLabel10.setText("imagem");
+        painelImg.setBackground(new java.awt.Color(255, 255, 255));
+        painelImg.setPreferredSize(new java.awt.Dimension(123, 142));
+
+        javax.swing.GroupLayout painelImgLayout = new javax.swing.GroupLayout(painelImg);
+        painelImg.setLayout(painelImgLayout);
+        painelImgLayout.setHorizontalGroup(
+            painelImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelImgLayout.createSequentialGroup()
+                .addComponent(lbImagem)
+                .addGap(0, 123, Short.MAX_VALUE))
+        );
+        painelImgLayout.setVerticalGroup(
+            painelImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelImgLayout.createSequentialGroup()
+                .addComponent(lbImagem)
+                .addGap(0, 142, Short.MAX_VALUE))
+        );
+
+        jToggleButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setText("Upload");
+        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,9 +159,6 @@ public class CadastroLivro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(btnCadastraAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -139,7 +182,13 @@ public class CadastroLivro extends javax.swing.JFrame {
                                     .addComponent(txtautor, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1)
                             .addComponent(txteditora)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(painelImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jToggleButton1))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(btnCadastraAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -173,10 +222,13 @@ public class CadastroLivro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastraAdm)
-                .addGap(17, 17, 17))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(painelImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCadastraAdm))
+                    .addComponent(jToggleButton1))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,14 +255,17 @@ public class CadastroLivro extends javax.swing.JFrame {
 
     private void btnCadastraAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastraAdmActionPerformed
         
-        Produto novo = new Produto(0,"","",0,"","",null);
-        
         novo.setTitulo(txttitulo.getText());
         novo.setAutor(txtautor.getText());
         novo.setValor(Double.parseDouble(txtvalor.getText()));
         novo.setEditora(txteditora.getText());
         novo.setDescricao(txtdescricao.getText());
-       // novo.getImagem(txtimagem)
+        try {
+            novo.setImagem(getImagem());
+        } catch (IOException ex) {
+            Logger.getLogger(CadastroLivro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
        
         ProdutosCONEC produtos = new ProdutosCONEC();
         
@@ -221,6 +276,12 @@ public class CadastroLivro extends javax.swing.JFrame {
         y.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastraAdmActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        imagem = selecionarImagem();
+        abrirImagem(imagem);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,7 +322,6 @@ public class CadastroLivro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastraAdm;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -272,10 +332,77 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbImagem;
+    private javax.swing.JPanel painelImg;
     private javax.swing.JTextField txtautor;
     private javax.swing.JTextArea txtdescricao;
     private javax.swing.JTextField txteditora;
     private javax.swing.JTextField txttitulo;
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
+    
+    public File selecionarImagem(){
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagens em JPEG e PNG", "jpg", "png");
+        fileChooser.addChoosableFileFilter(filtro);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\guilh\\OneDrive\\Área de Trabalho\\ImagensLivrosOO"));
+        fileChooser.showOpenDialog(this);
+        
+        return fileChooser.getSelectedFile();
+    }
+    
+    private byte[] getImagem() throws IOException{
+        boolean isPng = false;
+        
+        if(imagem != null){
+            isPng = imagem.getName().endsWith("png");
+            
+            try {
+                BufferedImage image = ImageIO.read(imagem);
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                int type = BufferedImage.TYPE_INT_RGB;
+                
+                if (isPng) {
+                    type = BufferedImage.BITMASK;
+                }
+                
+                BufferedImage novaImagem = new BufferedImage(painelImg.getWidth(), painelImg.getHeight(), type);
+                Graphics2D g = novaImagem.createGraphics();
+                g.setComposite(AlphaComposite.Src);
+                g.drawImage(image, 0, 0, painelImg.getWidth(), painelImg.getHeight(), null);
+                
+                if(isPng){
+                    ImageIO.write(novaImagem, "png", out);
+                }else{
+                    ImageIO.write(novaImagem, "jpg", out);
+                }
+                
+                out.flush();
+                byte[] byteArray = out.toByteArray();
+                out.close();
+                
+                return byteArray;
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }           
+        }
+        return null;
+    }
+    
+    public void abrirImagem(Object source){
+        if(source instanceof File){
+            ImageIcon icon = new ImageIcon(imagem.getAbsolutePath());
+            icon.setImage(icon.getImage().getScaledInstance(painelImg.getWidth(), painelImg.getHeight(), 10));
+            lbImagem.setIcon(icon);
+        }else if(source instanceof byte[]){
+            ImageIcon icon = new ImageIcon(novo.getImagem());
+            icon.setImage(icon.getImage().getScaledInstance(painelImg.getWidth(), painelImg.getHeight(), 10));
+            lbImagem.setIcon(icon);
+        }
+    }
 }
+

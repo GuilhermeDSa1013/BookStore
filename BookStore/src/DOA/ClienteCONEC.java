@@ -165,7 +165,7 @@ public class ClienteCONEC {
             rue.setString(1,x.getSenha());
             
             rue.execute();
-            rue.close();;
+            rue.close();
             
         } catch (SQLException erro) {
             

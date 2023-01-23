@@ -121,4 +121,49 @@ public class CupomCONEC {
         
         }        
     }
+    
+        public void excluirCupom(Cupom x){
+        
+        String url = "delete from cupons where codigo = ?";
+        
+        conn = new Conexao().conectaBD();
+        
+        
+        try {
+            
+            rue = conn.prepareStatement(url);
+            
+            rue.setInt(1,x.getCodigo());
+            
+            rue.execute();
+            rue.close();
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showConfirmDialog(null, "Excluir Cupom " + erro.getMessage());
+        }
+    }
+        public void ADMalterar(Cupom x){
+        
+        
+        String sql = "update cupons set valor = ? ,validade = ? where codigo = ?";
+        conn = new Conexao().conectaBD();
+        
+        
+        try {
+            
+            rue = conn.prepareStatement(sql);
+            rue.setInt(3, x.getCodigo());
+            
+            rue.setDouble(1,x.getValor());
+            rue.setInt(2,x.getValidade());
+           
+            rue.execute();
+            rue.close();
+                  
+        } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null,"Alterar Cupom" + erro.getMessage() );
+        }
+    }
 }

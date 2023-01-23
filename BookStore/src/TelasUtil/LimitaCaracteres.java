@@ -34,7 +34,7 @@ public class LimitaCaracteres extends PlainDocument {
             case TELEFONE:  regex = "[^0-9]";break;
             case EMAIL: regex = "[^\\p{IsLatin}@.\\-_][^0-9]";break;
             case SENHA: regex = "[^\\p{IsLatin}@.\\-_][^0-9]";break;
-            case TITULO: regex = "[^\\p{IsLatin} ,.\\-_][^0-9]";break;
+            case TITULO: regex = "[^\\p{IsLatin} ,.:\\-_][^0-9]";break;
             case AUTOR: regex = "[^\\p{IsLatin} ]";break;
             case EDITORA: regex = "[^\\p{IsLatin} ,.\\-_][^0-9]";break;
             case DESCRICAO: regex = "[^\\p{IsLatin} ,.\\-_][^0-9]";break;
