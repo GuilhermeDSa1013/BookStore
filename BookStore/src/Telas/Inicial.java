@@ -161,21 +161,19 @@ public class Inicial extends javax.swing.JFrame {
 
         painelImg.setBackground(new java.awt.Color(255, 255, 255));
         painelImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        painelImg.setPreferredSize(new java.awt.Dimension(123, 142));
+        painelImg.setPreferredSize(new java.awt.Dimension(123, 173));
+
+        lbImagem.setPreferredSize(new java.awt.Dimension(123, 173));
 
         javax.swing.GroupLayout painelImgLayout = new javax.swing.GroupLayout(painelImg);
         painelImg.setLayout(painelImgLayout);
         painelImgLayout.setHorizontalGroup(
             painelImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelImgLayout.createSequentialGroup()
-                .addComponent(lbImagem)
-                .addGap(0, 161, Short.MAX_VALUE))
+            .addComponent(lbImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         painelImgLayout.setVerticalGroup(
             painelImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelImgLayout.createSequentialGroup()
-                .addComponent(lbImagem)
-                .addGap(0, 186, Short.MAX_VALUE))
+            .addComponent(lbImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -210,9 +208,9 @@ public class Inicial extends javax.swing.JFrame {
                 .addComponent(txtTextoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(painelImg, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(135, 135, 135)
+                .addComponent(painelImg, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6)
@@ -243,7 +241,7 @@ public class Inicial extends javax.swing.JFrame {
                     .addComponent(lblPesquisarinicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtTextoInicial))
                 .addGap(50, 50, 50)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
@@ -263,8 +261,8 @@ public class Inicial extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(painelImg, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(painelImg, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,7 +391,7 @@ public class Inicial extends javax.swing.JFrame {
                 txtdescricao.setText(novo.getDescricao());
                 
                 ImageIcon icone = new ImageIcon(novo.getImagem());
-                icone.setImage(icone.getImage().getScaledInstance(painelImg.getWidth(), painelImg.getHeight(), 10));
+                icone.setImage(icone.getImage().getScaledInstance(painelImg.getWidth(), painelImg.getHeight(), 1));
                 lbImagem.setIcon(icone);
                 
             }

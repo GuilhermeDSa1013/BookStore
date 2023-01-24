@@ -12,6 +12,10 @@ public class Produto {
     private String descricao;
     private byte[] imagem;
 
+    public Produto(int i, String string, String string0, int i0, String string1, String string2) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -81,9 +85,4 @@ public class Produto {
         this.imagem = imagem;
     }
 
-    
-   
-    
-    
-    
  }

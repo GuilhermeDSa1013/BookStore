@@ -726,14 +726,26 @@ public class Pagamento extends javax.swing.JFrame {
         
         private void cadastra_produto(){
             
+            if(!Carrinho.txtTitulo0.getText().isEmpty()){
+
+                Prods_Comprados novo0 = new Prods_Comprados("","",0.0);
+                novo0.setSenha(Login.txtSenha.getText());
+                novo0.setTitulo(Carrinho.txtTitulo0.getText());
+                novo0.setValor(Double.parseDouble(Carrinho.txtValor0.getText()));
+                Prods_CompradosCONEC conecta0 = new Prods_CompradosCONEC();
+                conecta0.CadastrarProds_comprados(novo0);
+            }
+
             if(!Carrinho.txtTitulo1.getText().isEmpty()){
 
-                Prods_Comprados novo = new Prods_Comprados("","",0.0);
-                novo.setSenha(Login.txtSenha.getText());
-                novo.setTitulo(Carrinho.txtTitulo1.getText());
-                novo.setValor(Double.parseDouble(Carrinho.txtValor1.getText()));
-                Prods_CompradosCONEC conecta = new Prods_CompradosCONEC();
-                conecta.CadastrarProds_comprados(novo);
+                Prods_Comprados novo1 = new Prods_Comprados("","",0.0);
+                novo1.setSenha(Login.txtSenha.getText());
+                novo1.setTitulo(Carrinho.txtTitulo1.getText());
+                novo1.setValor(Double.parseDouble(Carrinho.txtValor1.getText()));
+                Prods_CompradosCONEC conecta1 = new Prods_CompradosCONEC();
+                conecta1.CadastrarProds_comprados(novo1);
+
+
             }
 
             if(!Carrinho.txtTitulo2.getText().isEmpty()){
@@ -745,6 +757,16 @@ public class Pagamento extends javax.swing.JFrame {
                 Prods_CompradosCONEC conecta2 = new Prods_CompradosCONEC();
                 conecta2.CadastrarProds_comprados(novo2);
 
+            }
+
+            if(!Carrinho.txtTitulo3.getText().isEmpty()){
+
+                Prods_Comprados novo3 = new Prods_Comprados("","",0.0);
+                novo3.setSenha(Login.txtSenha.getText());
+                novo3.setTitulo(Carrinho.txtTitulo3.getText());
+                novo3.setValor(Double.parseDouble(Carrinho.txtValor3.getText()));
+                Prods_CompradosCONEC conecta3 = new Prods_CompradosCONEC();
+                conecta3.CadastrarProds_comprados(novo3);
 
             }
 
@@ -756,28 +778,6 @@ public class Pagamento extends javax.swing.JFrame {
                 novo4.setValor(Double.parseDouble(Carrinho.txtValor4.getText()));
                 Prods_CompradosCONEC conecta4 = new Prods_CompradosCONEC();
                 conecta4.CadastrarProds_comprados(novo4);
-
-            }
-
-            if(!Carrinho.txtTitulo5.getText().isEmpty()){
-
-                Prods_Comprados novo5 = new Prods_Comprados("","",0.0);
-                novo5.setSenha(Login.txtSenha.getText());
-                novo5.setTitulo(Carrinho.txtTitulo5.getText());
-                novo5.setValor(Double.parseDouble(Carrinho.txtValor5.getText()));
-                Prods_CompradosCONEC conecta5 = new Prods_CompradosCONEC();
-                conecta5.CadastrarProds_comprados(novo5);
-
-            }
-
-            if(!Carrinho.txtTitulo6.getText().isEmpty()){
-
-                Prods_Comprados novo6 = new Prods_Comprados("","",0.0);
-                novo6.setSenha(Login.txtSenha.getText());
-                novo6.setTitulo(Carrinho.txtTitulo6.getText());
-                novo6.setValor(Double.parseDouble(Carrinho.txtValor6.getText()));
-                Prods_CompradosCONEC conecta6 = new Prods_CompradosCONEC();
-                conecta6.CadastrarProds_comprados(novo6);
 
             }
 

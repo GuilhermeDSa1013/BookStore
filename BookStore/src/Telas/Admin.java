@@ -11,6 +11,7 @@ import Model.Cupom;
 import Model.Produto;
 import TelasUtil.LimitaCaracteres;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author guilh
  */
 public class Admin extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Inicial
      */
@@ -277,7 +278,7 @@ public class Admin extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código", "Valor", "Validade"
+                "Código", "Valor (R$)", "Validade (dias)"
             }
         ));
         jScrollPane5.setViewportView(tabelCuponsADM);
@@ -390,14 +391,10 @@ public class Admin extends javax.swing.JFrame {
                                     .addComponent(jLabel13)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(txtvalorCupom))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnalterarcupom, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnexcluicupons, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btnCarregarCupom, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(126, 126, 126))))
+                                    .addComponent(btnexcluicupons, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCarregarCupom, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 48, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -439,7 +436,7 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -453,10 +450,10 @@ public class Admin extends javax.swing.JFrame {
                             .addComponent(txtvalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCarregarCupom)
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnalterarcupom)
-                            .addComponent(btnexcluicupons)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnalterarcupom)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnexcluicupons))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
@@ -560,7 +557,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarregarCupomActionPerformed
 
     private void btnalterarcupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarcupomActionPerformed
-        /*
+        
         if(JOptionPane.showConfirmDialog(null, "Deseja realmente alterar esse cupom?") == JOptionPane.YES_OPTION){
 
             AlterarCupom();
@@ -572,7 +569,7 @@ public class Admin extends javax.swing.JFrame {
         }else{
 
         }
-        */
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnalterarcupomActionPerformed
 
@@ -698,6 +695,7 @@ public class Admin extends javax.swing.JFrame {
                     novalista.get(num).getEditora(),
                     novalista.get(num).getValor(),
                     novalista.get(num).getDescricao(),
+                    novalista.get(num).getImagem(),
 
                 });
             }
@@ -730,22 +728,22 @@ public class Admin extends javax.swing.JFrame {
                     //seta as informaçoes desejadas em cada coluna da tabela
                     
                     novalista.get(num).getCodigo(),
-                    "R$ "+novalista.get(num).getValor(),
-                    novalista.get(num).getValidade()+ " dias",
+                    novalista.get(num).getValor(),
+                    novalista.get(num).getValidade(),
                     
 
                 });
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Listar Cupons  " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Listar Cupons  cadastrados" + e.getMessage());
         }
         
     }
     
     
     private void carregarcampos(){
-    
+              
         int setar = tabelProdsADM.getSelectedRow();
         
         //Pega os valores da tabela na linha selecionada e joga nos campos de texto
@@ -754,9 +752,9 @@ public class Admin extends javax.swing.JFrame {
         txtautor.setText(tabelProdsADM.getModel().getValueAt(setar, 2).toString());
         txteditora.setText(tabelProdsADM.getModel().getValueAt(setar, 3).toString());     
         txtvalor.setText(tabelProdsADM.getModel().getValueAt(setar, 4).toString());
-        txtdescricao.setText(tabelProdsADM.getModel().getValueAt(setar, 5).toString());     
+        txtdescricao.setText(tabelProdsADM.getModel().getValueAt(setar, 5).toString());
     }
-    
+     
     private void carregarcamposCupons(){
         int setar = tabelCuponsADM.getSelectedRow();
         
@@ -788,7 +786,7 @@ public class Admin extends javax.swing.JFrame {
         novo.setTitulo(txttitulo.getText());
         novo.setValor(Double.parseDouble(txtvalor.getText()));
         novo.setDescricao(txtdescricao.getText());
-        
+ 
         
         
         //Novo objeto da classe de conexão para alterar os dados
@@ -808,7 +806,7 @@ public class Admin extends javax.swing.JFrame {
         
     }
     
-        /*
+        
         private void AlterarCupom(){
         
         Cupom novo = new Cupom(0,0,0);
@@ -823,7 +821,6 @@ public class Admin extends javax.swing.JFrame {
         CupomCONEC nou = new CupomCONEC();
         nou.ADMalterar(novo);   
     }
-    */
     
     
 }
