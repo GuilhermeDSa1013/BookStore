@@ -87,11 +87,14 @@
                 <StringItem index="0" value="Escolha"/>
                 <StringItem index="1" value="PIX"/>
                 <StringItem index="2" value="Boleto"/>
-                <StringItem index="3" value="Cart&#xe3;o de d&#xe9;bito"/>
-                <StringItem index="4" value="Cart&#xe3;o de cr&#xe9;dito"/>
+                <StringItem index="3" value="Cart&#xe3;o de D&#xe9;bito"/>
+                <StringItem index="4" value="Cart&#xe3;o de Cr&#xe9;dito"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMetodoActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -123,7 +126,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="24" y="125" width="370" height="-1"/>
+              <AbsoluteConstraints x="24" y="125" width="370" height="100"/>
             </Constraint>
           </Constraints>
 
@@ -137,7 +140,7 @@
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="PIX - 8%&#xa;Boleto - 5%&#xa;Cart&#xe3;o de D&#xe9;bito - 7%&#xa;Cart&#xe3;o de c&#xe9;dito - 0%"/>
+                <Property name="text" type="java.lang.String" value="PIX - 8%&#xa;Boleto - 5%&#xa;Cart&#xe3;o de D&#xe9;bito - 7%&#xa;Cart&#xe3;o de Cr&#xe9;dito - 0%"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -286,7 +289,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="110" width="-1" height="-1"/>
+              <AbsoluteConstraints x="460" y="110" width="250" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

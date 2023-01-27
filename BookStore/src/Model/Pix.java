@@ -20,8 +20,8 @@ public class Pix extends FormaDePagamento {
     }
     
     
-    //Polimorfismo
-    public double pagarcompix(String x,Double y,Double desconto) {
+//Sobrecarga do método efetuarCompra
+    public double efetuarCompra(String x,Double y,Double desconto) {
         
         
         Double valorfinal =0.0;

@@ -31,7 +31,7 @@ public class ClienteCONEC {
         
         try {
             
-            //Passa o coamndo da string ao banco de dados
+            //Passa o comando da string ao banco de dados
             rue = conn.prepareStatement(sql);
             
             rue.setInt(1, x.getId());
@@ -159,7 +159,7 @@ public class ClienteCONEC {
         
         try {
             
-            //Passa o "statement" digitado na sql para o naco
+            //Passa o "statement" digitado na sql para o banco
             rue = conn.prepareStatement(sql);
             rue.setString(6, senhadig);
             
@@ -171,7 +171,7 @@ public class ClienteCONEC {
             
             //Executa o comando passado
             rue.execute();
-            //Fecha a coexão estabelecida
+            //Fecha a conexão estabelecida
             rue.close();
                   
         } catch (SQLException erro) {

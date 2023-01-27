@@ -20,28 +20,5 @@ public class Credito extends Cartao {
     }
 
     
-    //Polimorfismo
-    public double comprarnocredito(String x,Double y, Double desconto) {
-        
-        
-        Double valorfinal = 0.0;
-        if(x == "CCP") {
-            
-            valorfinal =  1.12*((y - desconto));
-            return valorfinal;
-        }else if(x == "CC20") {
-            
-            valorfinal = 1.12*(( y * 1.15) - desconto);
-            return valorfinal;
-        }else if(x == "CC10") {
-            
-            valorfinal = 1.12*(( y * 1.15) - desconto);
-            return valorfinal;
-        }else{
-            
-            return 0.0;
-        }
-        
-
-    }
+    
 }

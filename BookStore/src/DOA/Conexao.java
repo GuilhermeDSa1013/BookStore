@@ -17,10 +17,9 @@ public class Conexao {
         //Faz a conexão com o banco de dados
         Connection conn = null;
         
-        
         try {
             //Endereço local do banco de dados o usuario e a senha
-            String url = "jdbc:mysql://localhost:3306/produtos?user=root&password=hcm306021";
+            String url = "jdbc:mysql://localhost:3306/produtos?user=root&password=";
             //Conexão prporcionada pelo driver
             conn = DriverManager.getConnection(url);
         } catch (SQLException erro) {

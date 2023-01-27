@@ -98,9 +98,14 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Escolha a forma de pagamento dentre as opções, e não se esqueça de olhar a tabela de descontos!");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(64, 43, 553, 16);
+        jLabel3.setBounds(64, 43, 517, 16);
 
-        combMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha", "PIX", "Boleto", "Cartão de débito", "Cartão de crédito" }));
+        combMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha", "PIX", "Boleto", "Cartão de Débito", "Cartão de Crédito" }));
+        combMetodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMetodoActionPerformed(evt);
+            }
+        });
         jPanel1.add(combMetodo);
         combMetodo.setBounds(24, 77, 282, 30);
 
@@ -114,11 +119,11 @@ public class Pagamento extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("PIX - 8%\nBoleto - 5%\nCartão de Débito - 7%\nCartão de cédito - 0%");
+        jTextArea1.setText("PIX - 8%\nBoleto - 5%\nCartão de Débito - 7%\nCartão de Crédito - 0%");
         jScrollPane2.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(24, 125, 370, 83);
+        jScrollPane2.setBounds(24, 125, 370, 100);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,13 +134,13 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Escolha quando deseja receber sua entrega:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 280, 248, 16);
+        jLabel6.setBounds(20, 280, 229, 16);
 
         txtPrazopadrao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtPrazopadrao.setForeground(new java.awt.Color(255, 255, 255));
         txtPrazopadrao.setText("Entrega no prazo padrão (30 dias): +0%");
         jPanel1.add(txtPrazopadrao);
-        txtPrazopadrao.setBounds(63, 305, 247, 28);
+        txtPrazopadrao.setBounds(63, 305, 238, 20);
 
         txtprazo10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtprazo10.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +151,7 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtprazo10);
-        txtprazo10.setBounds(63, 339, 175, 28);
+        txtprazo10.setBounds(63, 339, 166, 20);
 
         txtprazo20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtprazo20.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,7 +162,7 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtprazo20);
-        txtprazo20.setBounds(63, 373, 178, 28);
+        txtprazo20.setBounds(63, 373, 169, 20);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,9 +173,9 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Caso tenha algum cupom, informe seu código para resgatá-lo.");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(410, 290, 345, 16);
+        jLabel8.setBounds(410, 290, 331, 16);
         jPanel1.add(txtCupom);
-        txtCupom.setBounds(410, 320, 284, 24);
+        txtCupom.setBounds(410, 320, 284, 22);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,7 +186,7 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Valor referente ao imposto.");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(460, 110, 148, 16);
+        jLabel10.setBounds(460, 110, 250, 16);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,7 +201,7 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtsubtpagamnento);
-        txtsubtpagamnento.setBounds(910, 320, 196, 24);
+        txtsubtpagamnento.setBounds(910, 320, 196, 22);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,7 +216,7 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txttotalfinal);
-        txttotalfinal.setBounds(910, 360, 196, 24);
+        txttotalfinal.setBounds(910, 360, 196, 22);
 
         btnCalcular.setBackground(new java.awt.Color(0, 0, 0));
         btnCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -224,7 +229,7 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCalcular);
-        btnCalcular.setBounds(1130, 320, 110, 28);
+        btnCalcular.setBounds(1130, 320, 110, 26);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pix.png"))); // NOI18N
         jPanel1.add(jLabel14);
@@ -244,7 +249,7 @@ public class Pagamento extends javax.swing.JFrame {
 
         txtimposto.setEditable(false);
         jPanel1.add(txtimposto);
-        txtimposto.setBounds(460, 140, 284, 24);
+        txtimposto.setBounds(460, 140, 284, 22);
 
         btnAcaoCupom.setText("OK");
         btnAcaoCupom.addActionListener(new java.awt.event.ActionListener() {
@@ -253,16 +258,16 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAcaoCupom);
-        btnAcaoCupom.setBounds(700, 320, 55, 24);
+        btnAcaoCupom.setBounds(700, 320, 55, 22);
 
         txtdescontocupom.setEditable(false);
         jPanel1.add(txtdescontocupom);
-        txtdescontocupom.setBounds(490, 360, 121, 24);
+        txtdescontocupom.setBounds(490, 360, 121, 22);
 
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("DESCONTO:");
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(410, 360, 71, 16);
+        jLabel18.setBounds(410, 360, 64, 16);
 
         btnPagar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPagar.setText("PAGAR");
@@ -485,8 +490,13 @@ public class Pagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtprazo10ActionPerformed
 
     private void txttotalfinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalfinalActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_txttotalfinalActionPerformed
+
+    private void combMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMetodoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combMetodoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -663,83 +673,83 @@ public class Pagamento extends javax.swing.JFrame {
             if(combMetodo.getSelectedItem() == "PIX" && txtPrazopadrao.isSelected()){
                 decide = "PP";
                 Pix novo = new Pix("");
-                Double t = novo.pagarcompix(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "PIX" && txtprazo20.isSelected()){
                 decide = "P20";
                 Pix novo = new Pix("");
-                Double t = novo.pagarcompix(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));     
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));     
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "PIX" && txtprazo10.isSelected()){
 
                 decide = "P10";
                 Pix novo = new Pix("");
-                Double t = novo.pagarcompix(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "Boleto" && txtPrazopadrao.isSelected()){
 
                 decide = "BP";
                 Boleto novo = new Boleto("",null);
-                Double t = novo.pagarcomboleto(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "Boleto" && txtprazo20.isSelected()){
 
                 decide = "B20";
                 Boleto novo = new Boleto("",null);
-                Double t = novo.pagarcomboleto(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));         
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));         
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "Boleto" && txtprazo10.isSelected()){
 
                 decide = "B10";
                 Boleto novo = new Boleto("",null);
-                Double t = novo.pagarcomboleto(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));  
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));  
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtPrazopadrao.isSelected()){
 
                 decide = "CDP";
                 Debito novo = new Debito("","",0,null);
-                Double t = novo.pagarnodebito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
 
             }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtprazo20.isSelected()){
 
                 decide = "CD20";
                 Debito novo = new Debito("","",0,null);
-                Double t = novo.pagarnodebito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
                 
             }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtprazo10.isSelected()){
 
                 decide = "CD10";
                 Debito novo = new Debito("","",0,null);
-                Double t = novo.pagarnodebito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
 
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
             }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtPrazopadrao.isSelected()){
 
                 decide = "CCP";
                 Credito novo = new Credito("","",0,null,0);
-                Double t = novo.comprarnocredito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
 
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
             }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtprazo20.isSelected()){
 
                 decide = "CC20";
                 Credito novo = new Credito("","",0,null,0);
-                Double t = novo.comprarnocredito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
 
                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
             }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtprazo10.isSelected()){
 
                 decide = "CC10";
                 Credito novo = new Credito("","",0,null,0);
-                Double t = novo.comprarnocredito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                Double t = novo.efetuarCompra(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
 
                 txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
             }else{

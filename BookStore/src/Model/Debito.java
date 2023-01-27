@@ -9,9 +9,8 @@ public class Debito extends Cartao {
 
     }
     
-    
-    //Polimorfismo
-    public double pagarnodebito(String x,Double y,Double desconto) {
+//Sobrecarga do método efetuarCompra
+    public double efetuarCompra(String x,Double y,Double desconto) {
         
         Double valorfinal = 0.0;
         

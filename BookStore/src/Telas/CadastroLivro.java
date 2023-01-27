@@ -351,18 +351,22 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
     
+    
+    //Abre a aba de seleção da imagem, já dizendo que os arquivos permitidos são apenas .jpg e .png
     public File selecionarImagem(){
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagens em JPEG e PNG", "jpg", "png");
         fileChooser.addChoosableFileFilter(filtro);
         fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
-        fileChooser.setCurrentDirectory(new File("C:\\Users\\harry\\Documents\\NetBeansProjects\\BookStore\\BookStore\\src\\ImagensLivro"));
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\guilh\\NetBeansProjects\\BookStore\\BookStore\\src\\ImagensLivro"));
         fileChooser.showOpenDialog(this);
         //138 por 188
         return fileChooser.getSelectedFile();
     }
     
+    
+    //Carregando a imagem para depois converter em bytes, e assim passar para a variável imagem do tipo bytes[] do Produto
     public byte[] getImagem() throws IOException{
         boolean isPng = false;
         
@@ -402,6 +406,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         return null;
     }
     
+    //Abre a imagem no Label desejado, alterando seu ícone, levando em consideração as medidas da label, ou painel que a label está inserida
     public void abrirImagem(Object source){
         if(source instanceof File){
             ImageIcon icon = new ImageIcon(imagem.getAbsolutePath());
