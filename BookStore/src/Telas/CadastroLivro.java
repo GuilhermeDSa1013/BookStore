@@ -33,7 +33,7 @@ public class CadastroLivro extends javax.swing.JFrame {
      */
     public CadastroLivro() {
         initComponents();
-        
+        //Limitações doq pode ser digitado nos campos
         txttitulo.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.TITULO));
         txtautor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.AUTOR));
         txteditora.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.EDITORA));
@@ -79,20 +79,24 @@ public class CadastroLivro extends javax.swing.JFrame {
         setTitle("Tela Cadastro Livro");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Título");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Valor");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Autor(a)");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Editora");
 
         btnCadastraAdm.setBackground(new java.awt.Color(0, 0, 0));
@@ -107,6 +111,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("<");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,6 +120,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Descrição");
 
         txtdescricao.setColumns(20);
@@ -122,6 +128,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtdescricao);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Imagem");
 
         painelImg.setBackground(new java.awt.Color(255, 255, 255));
@@ -173,16 +180,15 @@ public class CadastroLivro extends javax.swing.JFrame {
                             .addComponent(txtautor, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))
                     .addComponent(jScrollPane1)
                     .addComponent(txteditora)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel5)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(44, 44, 44)
-                            .addComponent(jLabel1)))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(painelImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,9 +357,9 @@ public class CadastroLivro extends javax.swing.JFrame {
         fileChooser.addChoosableFileFilter(filtro);
         fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
-        fileChooser.setCurrentDirectory(new File("C:\\Users\\guilh\\NetBeansProjects\\BookStore\\BookStore\\src\\ImagensLivro"));
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\harry\\Documents\\NetBeansProjects\\BookStore\\BookStore\\src\\ImagensLivro"));
         fileChooser.showOpenDialog(this);
-        
+        //138 por 188
         return fileChooser.getSelectedFile();
     }
     
@@ -407,5 +413,8 @@ public class CadastroLivro extends javax.swing.JFrame {
             lbImagem.setIcon(icon);
         }
     }
+    
+    
+   
 }
 

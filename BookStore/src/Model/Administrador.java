@@ -26,12 +26,5 @@ public class Administrador {
         this.nome = nome;
     }
 
-    public void addProd() {
-    }
-
-    public void delProd() {
-    }
-
-    public void modProd() {
-    }
+   
 }

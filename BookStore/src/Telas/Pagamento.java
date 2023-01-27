@@ -6,7 +6,11 @@ package Telas;
 
 import DOA.CupomCONEC;
 import DOA.Prods_CompradosCONEC;
+import Model.Boleto;
+import Model.Credito;
 import Model.Cupom;
+import Model.Debito;
+import Model.Pix;
 import Model.Prods_Comprados;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -25,7 +29,7 @@ public class Pagamento extends javax.swing.JFrame {
         initComponents();
         txtsubtpagamnento.setText(Carrinho.txtSoma.getText());
         txtdescontocupom.setText("0.0");
-        txtimposto.setText("");
+        txtimposto.setText("12%");
     }
 
     /**
@@ -37,14 +41,6 @@ public class Pagamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnCONTA = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,12 +72,215 @@ public class Pagamento extends javax.swing.JFrame {
         txtdescontocupom = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         btnPagar = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnCONTA = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tala Pagamento");
         setResizable(false);
 
-        jPanel4.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Forma de Pagamento:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(24, 17, 149, 20);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Escolha a forma de pagamento dentre as opções, e não se esqueça de olhar a tabela de descontos!");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(64, 43, 553, 16);
+
+        combMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha", "PIX", "Boleto", "Cartão de débito", "Cartão de crédito" }));
+        jPanel1.add(combMetodo);
+        combMetodo.setBounds(24, 77, 282, 30);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Aceitamos:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(780, 40, 74, 20);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("PIX - 8%\nBoleto - 5%\nCartão de Débito - 7%\nCartão de cédito - 0%");
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(24, 125, 370, 83);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Frete:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(24, 251, 38, 20);
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Escolha quando deseja receber sua entrega:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(20, 280, 248, 16);
+
+        txtPrazopadrao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtPrazopadrao.setForeground(new java.awt.Color(255, 255, 255));
+        txtPrazopadrao.setText("Entrega no prazo padrão (30 dias): +0%");
+        jPanel1.add(txtPrazopadrao);
+        txtPrazopadrao.setBounds(63, 305, 247, 28);
+
+        txtprazo10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtprazo10.setForeground(new java.awt.Color(255, 255, 255));
+        txtprazo10.setText("Entrega em 10 dias: +15%");
+        txtprazo10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprazo10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtprazo10);
+        txtprazo10.setBounds(63, 339, 175, 28);
+
+        txtprazo20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtprazo20.setForeground(new java.awt.Color(255, 255, 255));
+        txtprazo20.setText("Entrega em 20 dias: + 10%");
+        txtprazo20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprazo20ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtprazo20);
+        txtprazo20.setBounds(63, 373, 178, 28);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Cupons:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(410, 260, 53, 20);
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Caso tenha algum cupom, informe seu código para resgatá-lo.");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(410, 290, 345, 16);
+        jPanel1.add(txtCupom);
+        txtCupom.setBounds(410, 320, 284, 24);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Impostos:");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(460, 80, 65, 20);
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Valor referente ao imposto.");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(460, 110, 148, 16);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Subtotal:");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(840, 330, 50, 16);
+
+        txtsubtpagamnento.setEditable(false);
+        txtsubtpagamnento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsubtpagamnentoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtsubtpagamnento);
+        txtsubtpagamnento.setBounds(910, 320, 196, 24);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Total:");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(840, 360, 31, 16);
+
+        txttotalfinal.setEditable(false);
+        txttotalfinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttotalfinalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txttotalfinal);
+        txttotalfinal.setBounds(910, 360, 196, 24);
+
+        btnCalcular.setBackground(new java.awt.Color(0, 0, 0));
+        btnCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCalcular.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalcular.setText("CALCULAR");
+        btnCalcular.setBorderPainted(false);
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCalcular);
+        btnCalcular.setBounds(1130, 320, 110, 28);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pix.png"))); // NOI18N
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(1210, 90, 90, 69);
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/boleto.png"))); // NOI18N
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(1110, 90, 90, 69);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/mastercard.png"))); // NOI18N
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(970, 90, 125, 69);
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/visa.jpg"))); // NOI18N
+        jPanel1.add(jLabel17);
+        jLabel17.setBounds(820, 90, 143, 72);
+
+        txtimposto.setEditable(false);
+        jPanel1.add(txtimposto);
+        txtimposto.setBounds(460, 140, 284, 24);
+
+        btnAcaoCupom.setText("OK");
+        btnAcaoCupom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcaoCupomActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAcaoCupom);
+        btnAcaoCupom.setBounds(700, 320, 55, 24);
+
+        txtdescontocupom.setEditable(false);
+        jPanel1.add(txtdescontocupom);
+        txtdescontocupom.setBounds(490, 360, 121, 24);
+
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("DESCONTO:");
+        jPanel1.add(jLabel18);
+        jLabel18.setBounds(410, 360, 71, 16);
+
+        btnPagar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPagar.setText("PAGAR");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPagar);
+        btnPagar.setBounds(1150, 360, 70, 28);
+        jPanel1.add(jLabel19);
+        jLabel19.setBounds(659, 314, 0, 0);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MAIOR.png"))); // NOI18N
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(0, -10, 1310, 450);
+
+        jPanel4.setBackground(new java.awt.Color(0, 51, 102));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,7 +364,7 @@ public class Pagamento extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCONTA)
@@ -177,291 +376,38 @@ public class Pagamento extends javax.swing.JFrame {
                 .addComponent(jButton7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9)
-                .addGap(21, 21, 21))
+                .addGap(16, 16, 16))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCONTA)
                     .addComponent(jButton5)
                     .addComponent(jButton6)
                     .addComponent(jButton7)
                     .addComponent(jButton9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
-
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Forma de Pagamento:");
-
-        jLabel3.setText("Escolha a forma de pagamento dentre as opções, e não se esqueça de olhar a tabela de descontos!");
-
-        combMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha", "PIX", "Boleto", "Cartão de débito", "Cartão de crédito" }));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Aceitamos:");
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("PIX - 8%\nBoleto - 5%\nCartão de Débito - 7%\nCartão de cédito - 0%");
-        jScrollPane2.setViewportView(jTextArea1);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Frete:");
-
-        jLabel6.setText("Escolha quando deseja receber sua entrega, mas se lembre que dependendo da sua escolha um acréscimo será cobrado.");
-
-        txtPrazopadrao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtPrazopadrao.setText("Entrega no prazo padrão (30 dias): +0%");
-
-        txtprazo10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtprazo10.setText("Entrega em 10 dias: +15%");
-        txtprazo10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtprazo10ActionPerformed(evt);
-            }
-        });
-
-        txtprazo20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtprazo20.setText("Entrega em 20 dias: + 10%");
-        txtprazo20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtprazo20ActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Cupons:");
-
-        jLabel8.setText("Caso tenha algum cupom, informe seu código para resgatá-lo.");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setText("Impostos:");
-
-        jLabel10.setText("Valor referente ao imposto.");
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setText("Subtotal:");
-
-        txtsubtpagamnento.setEditable(false);
-        txtsubtpagamnento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsubtpagamnentoActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel13.setText("Total:");
-
-        txttotalfinal.setEditable(false);
-
-        btnCalcular.setBackground(new java.awt.Color(0, 0, 0));
-        btnCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCalcular.setForeground(new java.awt.Color(255, 255, 255));
-        btnCalcular.setText("CALCULAR");
-        btnCalcular.setBorderPainted(false);
-        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pix.png"))); // NOI18N
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/boleto.png"))); // NOI18N
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/mastercard.png"))); // NOI18N
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/visa.jpg"))); // NOI18N
-
-        txtimposto.setEditable(false);
-
-        btnAcaoCupom.setText("OK");
-        btnAcaoCupom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcaoCupomActionPerformed(evt);
-            }
-        });
-
-        txtdescontocupom.setEditable(false);
-
-        jLabel18.setText("DESCONTO:");
-
-        btnPagar.setText("PAGAR");
-        btnPagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPagarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(combMetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(108, 108, 108)
-                                    .addComponent(jLabel4))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(43, 43, 43)
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel8)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(txtCupom, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnAcaoCupom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGap(159, 159, 159)))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(txtimposto, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel9))
-                                    .addGap(97, 97, 97)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtdescontocupom, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtsubtpagamnento, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txttotalfinal, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnCalcular)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtprazo10)
-                            .addComponent(txtPrazopadrao)
-                            .addComponent(txtprazo20)
-                            .addComponent(jLabel6))))
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combMetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(17, 17, 17)))
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPrazopadrao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtprazo10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtprazo20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCupom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtimposto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAcaoCupom))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtdescontocupom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtsubtpagamnento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(txttotalfinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCalcular)
-                            .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(178, Short.MAX_VALUE))
-        );
-
-        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1305, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
         );
 
         pack();
@@ -511,111 +457,36 @@ public class Pagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void txtprazo10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprazo10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtprazo10ActionPerformed
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        cadastra_produto();
+        JOptionPane.showMessageDialog(null,"Pagamento Confirmado!" +"\n"+"O pedido será enviado para seu endereço!");
+    }//GEN-LAST:event_btnPagarActionPerformed
+
+    private void btnAcaoCupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcaoCupomActionPerformed
+
+        cupom(Integer.parseInt(txtCupom.getText()));
+    }//GEN-LAST:event_btnAcaoCupomActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+
+        calcular();
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void txtsubtpagamnentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsubtpagamnentoActionPerformed
+
+    }//GEN-LAST:event_txtsubtpagamnentoActionPerformed
 
     private void txtprazo20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprazo20ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtprazo20ActionPerformed
 
-    private void btnAcaoCupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcaoCupomActionPerformed
-         
-        cupom(Integer.parseInt(txtCupom.getText()));
-        
-        
-    }//GEN-LAST:event_btnAcaoCupomActionPerformed
+    private void txtprazo10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprazo10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtprazo10ActionPerformed
 
-    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        
-        String decide ="";
-        
-        if(combMetodo.getSelectedItem() == "PIX" && txtPrazopadrao.isSelected()){
-            decide = "PP";
-            Double t = UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "PIX" && txtprazo20.isSelected()){
-            decide = "P20";
-            Double t = UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "PIX" && txtprazo10.isSelected()){
-            
-            decide = "P10";
-            Double t = UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Boleto" && txtPrazopadrao.isSelected()){
-            
-            decide = "BP";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Boleto" && txtprazo20.isSelected()){
-            
-            decide = "B20";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Boleto" && txtprazo10.isSelected()){
-            
-            decide = "B10";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtPrazopadrao.isSelected()){
-            
-            decide = "CDP";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtprazo20.isSelected()){
-            
-            decide = "CD20";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtprazo10.isSelected()){
-            
-            decide = "CD10";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtPrazopadrao.isSelected()){
-            
-            decide = "CCP";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtprazo20.isSelected()){
-            
-            decide = "CC20";
-            Double t =UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtprazo10.isSelected()){
-            
-            decide = "CC10";
-            Double t = UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }else{
-            
-            Double t = UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
-            
-            txttotalfinal.setText(t.toString());
-        }
-    }//GEN-LAST:event_btnCalcularActionPerformed
-
-    private void txtsubtpagamnentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsubtpagamnentoActionPerformed
-        
-    }//GEN-LAST:event_txtsubtpagamnentoActionPerformed
-
-    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
-        cadastra_produto();
-        JOptionPane.showMessageDialog(null,"Pagamento Confirmado!" +"\n"+"O pedido será enviado para seu endereço!");
-    }//GEN-LAST:event_btnPagarActionPerformed
+    private void txttotalfinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalfinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttotalfinalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -671,7 +542,9 @@ public class Pagamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -681,7 +554,6 @@ public class Pagamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtCupom;
@@ -695,7 +567,7 @@ public class Pagamento extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
         private void cupom(int x){
-            
+            //Autentifa a existencia do cupom digitado pelo cliente
             try{
 
                CupomCONEC cupom = new CupomCONEC();
@@ -725,7 +597,7 @@ public class Pagamento extends javax.swing.JFrame {
         
         
         private void cadastra_produto(){
-            
+            //Quando um cliente compra um produto esse é cadastrado em sua conta 
             if(!Carrinho.txtTitulo0.getText().isEmpty()){
 
                 Prods_Comprados novo0 = new Prods_Comprados("","",0.0);
@@ -782,5 +654,100 @@ public class Pagamento extends javax.swing.JFrame {
             }
 
             
+        }
+        
+        private void calcular(){
+            
+                String decide ="";
+                //Calculos referentes a descontos, parcelas e incrementos
+            if(combMetodo.getSelectedItem() == "PIX" && txtPrazopadrao.isSelected()){
+                decide = "PP";
+                Pix novo = new Pix("");
+                Double t = novo.pagarcompix(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "PIX" && txtprazo20.isSelected()){
+                decide = "P20";
+                Pix novo = new Pix("");
+                Double t = novo.pagarcompix(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));     
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "PIX" && txtprazo10.isSelected()){
+
+                decide = "P10";
+                Pix novo = new Pix("");
+                Double t = novo.pagarcompix(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "Boleto" && txtPrazopadrao.isSelected()){
+
+                decide = "BP";
+                Boleto novo = new Boleto("",null);
+                Double t = novo.pagarcomboleto(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "Boleto" && txtprazo20.isSelected()){
+
+                decide = "B20";
+                Boleto novo = new Boleto("",null);
+                Double t = novo.pagarcomboleto(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));         
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "Boleto" && txtprazo10.isSelected()){
+
+                decide = "B10";
+                Boleto novo = new Boleto("",null);
+                Double t = novo.pagarcomboleto(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));  
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtPrazopadrao.isSelected()){
+
+                decide = "CDP";
+                Debito novo = new Debito("","",0,null);
+                Double t = novo.pagarnodebito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+
+            }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtprazo20.isSelected()){
+
+                decide = "CD20";
+                Debito novo = new Debito("","",0,null);
+                Double t = novo.pagarnodebito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+                
+            }else if(combMetodo.getSelectedItem() == "Cartão de débito" && txtprazo10.isSelected()){
+
+                decide = "CD10";
+                Debito novo = new Debito("","",0,null);
+                Double t = novo.pagarnodebito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+            }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtPrazopadrao.isSelected()){
+
+                decide = "CCP";
+                Credito novo = new Credito("","",0,null,0);
+                Double t = novo.comprarnocredito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+            }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtprazo20.isSelected()){
+
+                decide = "CC20";
+                Credito novo = new Credito("","",0,null,0);
+                Double t = novo.comprarnocredito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+
+               txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+            }else if(combMetodo.getSelectedItem() == "Cartão de crédito" && txtprazo10.isSelected()){
+
+                decide = "CC10";
+                Credito novo = new Credito("","",0,null,0);
+                Double t = novo.comprarnocredito(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+            }else{
+
+                Double t = UtilPagamento.paga(decide,Double.parseDouble(txtsubtpagamnento.getText()),Double.parseDouble(txtdescontocupom.getText()));
+
+                txttotalfinal.setText(Double.toString(t).formatted("%.2f", t));
+            }
+
         }
 }

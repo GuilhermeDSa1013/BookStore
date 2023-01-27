@@ -26,7 +26,7 @@ public class Prods_CompradosCONEC {
     ResultSet rs;
     ArrayList<Produto> lista = new ArrayList<>();
     
-    //Pega as compras cadastradas com a senha do usuario e exibe em forma de tabela 
+    //Acha as compras cadastradas com a senha do usuario 
     public ArrayList<Produto>ListaCompras(String CompraAserListada){
         
         String sql = "select * from produtos_comprados where senha = ? ";
@@ -40,7 +40,7 @@ public class Prods_CompradosCONEC {
             rs = rue.executeQuery();
                 
             while(rs.next()){
-                
+                //O laço pega todas as compras cadastradas na senha do cliente
                 Produto novo = new Produto(0,"","",0,"","",null);
                 novo.setTitulo(rs.getString("produto_titulo"));
                 novo.setValor(rs.getDouble("valor"));
@@ -62,6 +62,7 @@ public class Prods_CompradosCONEC {
     
     public void CadastrarProds_comprados(Prods_Comprados x){
         
+        //Insere na tabela de produtos comprados os produtos comprados por aquela senha atual
         String sql = "insert into produtos_comprados (senha,produto_titulo,valor) values(?,?,?)";
         conn = new Conexao().conectaBD();
         

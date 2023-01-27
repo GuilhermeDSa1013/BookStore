@@ -26,9 +26,11 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        //Ao iniciar a tela já é inicializada a tebela a qual lista os produtos e cupons
         listarProdutosCadastrados();
         listarCuponsADM();
         
+        //Limitações quanto ao que pode ser digitado nos campos de texto
         txttitulo.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.TITULO));
         txtautor.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.AUTOR));
         txteditora.setDocument(new LimitaCaracteres(40, LimitaCaracteres.TipoEntrada.EDITORA));
@@ -75,7 +77,6 @@ public class Admin extends javax.swing.JFrame {
         txtdescricao = new javax.swing.JTextArea();
         btnCarregar = new javax.swing.JButton();
         btnexcluiprods = new javax.swing.JButton();
-        btnalterarproduto = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tabelCuponsADM = new javax.swing.JTable();
@@ -108,12 +109,14 @@ public class Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Admin");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(null);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 51, 102));
         jPanel3.setPreferredSize(new java.awt.Dimension(1004, 562));
 
-        jPanel4.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel4.setBackground(new java.awt.Color(0, 51, 102));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
 
@@ -166,7 +169,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addComponent(jButton10)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7)
@@ -176,17 +179,18 @@ public class Admin extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton7)
+                            .addComponent(jButton9)
+                            .addComponent(jButton10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(2, Short.MAX_VALUE))
         );
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
@@ -253,17 +257,6 @@ public class Admin extends javax.swing.JFrame {
         btnexcluiprods.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexcluiprodsActionPerformed(evt);
-            }
-        });
-
-        btnalterarproduto.setBackground(new java.awt.Color(0, 0, 0));
-        btnalterarproduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnalterarproduto.setForeground(new java.awt.Color(255, 255, 255));
-        btnalterarproduto.setText("ALTERAR");
-        btnalterarproduto.setBorderPainted(false);
-        btnalterarproduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnalterarprodutoActionPerformed(evt);
             }
         });
 
@@ -338,7 +331,7 @@ public class Admin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(842, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -367,15 +360,10 @@ public class Admin extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addComponent(btnexcluiprods, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCarregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnalterarproduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCarregar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnexcluiprods, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel10)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -395,7 +383,7 @@ public class Admin extends javax.swing.JFrame {
                                     .addComponent(btnalterarcupom, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnexcluicupons, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnCarregarCupom, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 48, Short.MAX_VALUE))))
+                        .addGap(0, 39, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,23 +400,18 @@ public class Admin extends javax.swing.JFrame {
                             .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCarregar))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txttitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnalterarproduto)
-                                .addGap(35, 35, 35)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txttitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnexcluiprods))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnexcluiprods))
+                            .addComponent(txteditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -465,30 +448,18 @@ public class Admin extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane4)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         pack();
         setLocationRelativeTo(null);
@@ -525,7 +496,8 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnexcluiprodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluiprodsActionPerformed
         if(JOptionPane.showConfirmDialog(null, "Deseja realmente excluir esse produto?") == JOptionPane.YES_OPTION){
-
+            
+            //Se for confirmado o excluir échamdo a função 
             excluir_produtos();
             JOptionPane.showMessageDialog(null, "Produto excluido");
             Admin y = new Admin();
@@ -537,20 +509,6 @@ public class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnexcluiprodsActionPerformed
 
-    private void btnalterarprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarprodutoActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Deseja realmente alterar esse produto?") == JOptionPane.YES_OPTION){
-
-            AlterarProduto();
-            JOptionPane.showMessageDialog(null, "Produto alterado!");
-            Admin y = new Admin();
-            this.dispose();
-            y.setVisible(true);
-
-        }else{
-
-        }
-    }//GEN-LAST:event_btnalterarprodutoActionPerformed
-
     private void btnCarregarCupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarCupomActionPerformed
         carregarcamposCupons();
         // TODO add your handling code here:
@@ -559,7 +517,8 @@ public class Admin extends javax.swing.JFrame {
     private void btnalterarcupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarcupomActionPerformed
         
         if(JOptionPane.showConfirmDialog(null, "Deseja realmente alterar esse cupom?") == JOptionPane.YES_OPTION){
-
+            
+            //Se for confirmado o alterar é chamdo a função
             AlterarCupom();
             JOptionPane.showMessageDialog(null, "Cupom alterado!");
             Admin y = new Admin();
@@ -574,17 +533,17 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnalterarcupomActionPerformed
 
     private void btnexcluicuponsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluicuponsActionPerformed
-    if(JOptionPane.showConfirmDialog(null, "Deseja realmente excluir esse cupom?") == JOptionPane.YES_OPTION){
+        if(JOptionPane.showConfirmDialog(null, "Deseja realmente excluir esse cupom?") == JOptionPane.YES_OPTION){
+                
+                excluir_cupom();
+                JOptionPane.showMessageDialog(null, "Cupom excluido");
+                Admin y = new Admin();
+                this.dispose();
+                y.setVisible(true);
 
-            excluir_cupom();
-            JOptionPane.showMessageDialog(null, "Cupom excluido");
-            Admin y = new Admin();
-            this.dispose();
-            y.setVisible(true);
+            }else{
 
-        }else{
-
-        }
+            }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnexcluicuponsActionPerformed
 
@@ -630,7 +589,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnCarregar;
     private javax.swing.JButton btnCarregarCupom;
     private javax.swing.JButton btnalterarcupom;
-    private javax.swing.JButton btnalterarproduto;
     private javax.swing.JButton btnexcluicupons;
     private javax.swing.JButton btnexcluiprods;
     private javax.swing.JButton jButton10;
@@ -709,7 +667,7 @@ public class Admin extends javax.swing.JFrame {
     
     private void listarCuponsADM(){
         
-        //Lista os produtos cadastrados  na tabela 
+        //Lista os cupons cadastrados  na tabela 
         try {
           
             CupomCONEC novo = new CupomCONEC();
@@ -756,6 +714,7 @@ public class Admin extends javax.swing.JFrame {
     }
      
     private void carregarcamposCupons(){
+        //Carerega o valor selecionado da tabela de cupons e joga nos determinados campos de texto
         int setar = tabelCuponsADM.getSelectedRow();
         
         txtcodigo.setText(tabelCuponsADM.getModel().getValueAt(setar, 0).toString());
@@ -765,6 +724,7 @@ public class Admin extends javax.swing.JFrame {
     
     public void excluir_produtos(){
         
+        //Excluios produtos a partir da função do ProdutosCONEC
         int id = Integer.parseInt(txtid.getText());
         
         Produto novo = new Produto(0,"","",0,"","",null);
@@ -775,27 +735,11 @@ public class Admin extends javax.swing.JFrame {
         
     }
     
-    private void AlterarProduto(){
-        
-        Produto novo = new Produto(0,"","",0,"","",null);
-        
-        //pego os dados da interface
-        novo.setId(Integer.parseInt(txtid.getText()));
-        novo.setAutor(txtautor.getText());
-        novo.setEditora(txteditora.getText());
-        novo.setTitulo(txttitulo.getText());
-        novo.setValor(Double.parseDouble(txtvalor.getText()));
-        novo.setDescricao(txtdescricao.getText());
- 
-        
-        
-        //Novo objeto da classe de conexão para alterar os dados
-        ProdutosCONEC nou = new ProdutosCONEC();
-        nou.ADMaltera(novo);   
-    }
+    
     
     public void excluir_cupom(){
         
+        //Exclui os cupons selecionados
         int codigo = Integer.parseInt(txtcodigo.getText());
         
         Cupom novo = new Cupom(0,0,0);

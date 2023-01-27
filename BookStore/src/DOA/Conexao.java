@@ -14,12 +14,14 @@ import java.sql.SQLException;
 public class Conexao {
     
     public Connection conectaBD(){
+        //Faz a conexão com o banco de dados
         Connection conn = null;
         
         
         try {
-            
-            String url = "jdbc:mysql://localhost:3306/produtos?user=root&password=";
+            //Endereço local do banco de dados o usuario e a senha
+            String url = "jdbc:mysql://localhost:3306/produtos?user=root&password=hcm306021";
+            //Conexão prporcionada pelo driver
             conn = DriverManager.getConnection(url);
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Conexao" + erro.getMessage());

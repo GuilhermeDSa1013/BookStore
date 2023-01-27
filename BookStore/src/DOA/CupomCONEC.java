@@ -24,7 +24,7 @@ public class CupomCONEC {
     ArrayList<Cupom> lista = new ArrayList<>();
     
     public void AdmCadastraCupom(Cupom x){
-        
+        //Cadastra as informações do cupom digitadas pelo adm do programa
         String sql = "insert into cupons (valor,validade) values(?,?)";
         conn = new Conexao().conectaBD();
         
@@ -47,7 +47,7 @@ public class CupomCONEC {
     
     public ArrayList<Cupom> listarcupons(){
       
-        //Vai na tabela de cupons
+        //Seleciona a tabela cupons do banco
         String url = "select * from cupons ";
       
         
@@ -88,7 +88,7 @@ public class CupomCONEC {
     
         public Cupom AutentificarOCupom(int x){
         
-        //Seleciona linha onde o titulo é igual ao digitado
+        //Procura a linha onde codigo passado é igual
         String url = "select * from cupons where codigo = ?";
         
         Cupom novo = new Cupom(0,0,0);
@@ -116,7 +116,7 @@ public class CupomCONEC {
             }
             
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null,"Consultar prods" +  erro.getMessage());
+            JOptionPane.showMessageDialog(null,"Autenticar o cupom" +  erro.getMessage());
             return null;
         
         }        
@@ -124,6 +124,7 @@ public class CupomCONEC {
     
         public void excluirCupom(Cupom x){
         
+            //Deleta o cupom onde na linha onde o codigo passado for igual
         String url = "delete from cupons where codigo = ?";
         
         conn = new Conexao().conectaBD();
@@ -145,7 +146,7 @@ public class CupomCONEC {
     }
         public void ADMalterar(Cupom x){
         
-        
+        //Faz upadate dos dados onde o codigo passado for igual
         String sql = "update cupons set valor = ? ,validade = ? where codigo = ?";
         conn = new Conexao().conectaBD();
         

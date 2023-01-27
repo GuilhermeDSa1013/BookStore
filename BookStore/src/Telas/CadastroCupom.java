@@ -54,14 +54,16 @@ public class CadastroCupom extends javax.swing.JFrame {
         setTitle("Tela Cadastro Cupom");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Valor");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Validade");
 
         btnCadastrarcupom.setBackground(new java.awt.Color(0, 0, 0));
@@ -76,6 +78,7 @@ public class CadastroCupom extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("<");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,6 +87,7 @@ public class CadastroCupom extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Código");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -161,21 +165,8 @@ public class CadastroCupom extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void btnCadastrarcupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarcupomActionPerformed
-       
-        
-        Cupom novo = new Cupom(0,0,0);
-        
-        novo.setValidade(Integer.parseInt(txtvalidade.getText()));
-        novo.setValor(Double.parseDouble(txtvalor.getText()));
-        
-        CupomCONEC cupom = new CupomCONEC();
-        
-        cupom.AdmCadastraCupom(novo);
-        
-        Admin y = new Admin();
-        this.dispose();
-        y.setVisible(true);
-        // TODO add your handling code here:
+      
+        cadastrar_cupons();
     }//GEN-LAST:event_btnCadastrarcupomActionPerformed
 
     /**
@@ -227,4 +218,22 @@ public class CadastroCupom extends javax.swing.JFrame {
     private javax.swing.JTextField txtvalidade;
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
+    
+    private void cadastrar_cupons(){
+        
+        Cupom novo = new Cupom(0,0,0);
+        //Pega as informações digitadas na tela e passa para um novo objeto que é cadastrado
+        novo.setValidade(Integer.parseInt(txtvalidade.getText()));
+        novo.setValor(Double.parseDouble(txtvalor.getText()));
+        
+        CupomCONEC cupom = new CupomCONEC();
+        
+        cupom.AdmCadastraCupom(novo);
+        
+        Admin y = new Admin();
+        this.dispose();
+        y.setVisible(true);
+        
+    }
+
 }

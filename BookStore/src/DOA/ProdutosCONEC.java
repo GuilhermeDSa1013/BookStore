@@ -17,7 +17,7 @@ public class ProdutosCONEC {
     ArrayList<Produto> lista = new ArrayList<>();
     
     public void AdmCadastraProduto(Produto x){
-        
+        //Insere ta tabela de produtos os produtos cadastrados pelo adm
         String sql = "insert into prods (titulo,autor,valor,editora,descricao,imagem) values(?,?,?,?,?,?)";
         conn = new Conexao().conectaBD();
         
@@ -88,7 +88,7 @@ public class ProdutosCONEC {
         
     public ArrayList<Produto> listarLivros(){
 
-    //Vai na tabela de livros
+    //Selecionada a tabela de produtos cadastrados 
     String url = "select * from prods ";
 
 
@@ -130,6 +130,7 @@ public class ProdutosCONEC {
         
      public void excluirProdutos(Produto x){
         
+         //Deleta o produto que tiver o mesmo id que o passado
         String url = "delete from prods where id = ?";
         
         conn = new Conexao().conectaBD();
@@ -152,33 +153,5 @@ public class ProdutosCONEC {
    
     }
      
-     public void ADMaltera(Produto x){
-        
-        
-        String sql = "update prods set titulo = ? , autor = ? ,valor = ? , editora  = ? , descricao = ?, imagem = ? where id = ?";
-        conn = new Conexao().conectaBD();
-        
-        
-        try {
-            
-            rue = conn.prepareStatement(sql);
-            rue.setInt(7, x.getId());
-            
-            rue.setString(1,x.getTitulo());
-            rue.setString(2,x.getAutor());
-            rue.setDouble(3,x.getValor());
-            rue.setString(4,x.getEditora());
-            rue.setString(5, x.getDescricao());
-            rue.setBytes(6,x.getImagem());
-            
-            
-            rue.execute();
-            rue.close();
-                  
-        } catch (SQLException erro) {
-            
-            JOptionPane.showMessageDialog(null,"Alterar Produto" + erro.getMessage() );
-        }
-    }
-        
+      
 }

@@ -127,6 +127,7 @@ public class Principal extends javax.swing.JFrame {
         lbImagem = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDesc = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -151,9 +152,9 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1004, 562));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel4.setBackground(new java.awt.Color(0, 51, 102));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
 
@@ -264,7 +265,8 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 80));
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(0, 0, 1290, 80);
 
         txtpesquisar.setDoubleBuffered(true);
         txtpesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +274,8 @@ public class Principal extends javax.swing.JFrame {
                 txtpesquisarActionPerformed(evt);
             }
         });
-        jPanel3.add(txtpesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 1060, 30));
+        jPanel3.add(txtpesquisar);
+        txtpesquisar.setBounds(140, 110, 1060, 30);
 
         LabelPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/lupa.png"))); // NOI18N
         LabelPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -280,7 +283,8 @@ public class Principal extends javax.swing.JFrame {
                 LabelPesquisarMouseClicked(evt);
             }
         });
-        jPanel3.add(LabelPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        jPanel3.add(LabelPesquisar);
+        LabelPesquisar.setBounds(90, 110, 40, 40);
 
         txtTitulo.setEditable(false);
         txtTitulo.addActionListener(new java.awt.event.ActionListener() {
@@ -288,7 +292,8 @@ public class Principal extends javax.swing.JFrame {
                 txtTituloActionPerformed(evt);
             }
         });
-        jPanel3.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 310, -1));
+        jPanel3.add(txtTitulo);
+        txtTitulo.setBounds(60, 160, 310, 24);
 
         TxtAutor.setEditable(false);
         TxtAutor.addActionListener(new java.awt.event.ActionListener() {
@@ -296,18 +301,21 @@ public class Principal extends javax.swing.JFrame {
                 TxtAutorActionPerformed(evt);
             }
         });
-        jPanel3.add(TxtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 130, -1));
+        jPanel3.add(TxtAutor);
+        TxtAutor.setBounds(60, 210, 130, 24);
 
         txtEditora.setEditable(false);
-        jPanel3.add(txtEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 130, -1));
+        jPanel3.add(txtEditora);
+        txtEditora.setBounds(60, 260, 130, 24);
 
         txtCusto.setEditable(false);
-        jPanel3.add(txtCusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 130, -1));
+        jPanel3.add(txtCusto);
+        txtCusto.setBounds(60, 310, 130, 24);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jPanel5.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel5.setBackground(new java.awt.Color(0, 51, 102));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Imagem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -464,7 +472,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        Painel1.setBackground(new java.awt.Color(125, 255, 232));
+        Painel1.setBackground(new java.awt.Color(0, 51, 102));
 
         txtnome6.setEditable(false);
 
@@ -517,7 +525,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Painel2.setBackground(new java.awt.Color(125, 255, 232));
+        Painel2.setBackground(new java.awt.Color(0, 51, 102));
 
         txtnome7.setEditable(false);
 
@@ -569,7 +577,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Painel4.setBackground(new java.awt.Color(125, 255, 232));
+        Painel4.setBackground(new java.awt.Color(0, 51, 102));
 
         txtnome8.setEditable(false);
 
@@ -621,7 +629,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Painel7.setBackground(new java.awt.Color(125, 255, 232));
+        Painel7.setBackground(new java.awt.Color(0, 51, 102));
 
         txtnome9.setEditable(false);
 
@@ -673,7 +681,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Painel8.setBackground(new java.awt.Color(125, 255, 232));
+        Painel8.setBackground(new java.awt.Color(0, 51, 102));
 
         txtnome10.setEditable(false);
 
@@ -725,7 +733,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCarrinho10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Painel9.setBackground(new java.awt.Color(125, 255, 232));
+        Painel9.setBackground(new java.awt.Color(0, 51, 102));
 
         txtnome11.setEditable(false);
 
@@ -949,27 +957,38 @@ public class Principal extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel5);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 840, 370));
+        jPanel3.add(jScrollPane1);
+        jScrollPane1.setBounds(390, 160, 870, 380);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Descrição:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(10, 370, 57, 16);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Título:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(10, 160, 35, 16);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Autor:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(10, 210, 35, 16);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Editora:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(10, 260, 42, 16);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Valor:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(10, 310, 32, 16);
 
         painelImg.setBackground(new java.awt.Color(255, 255, 255));
         painelImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -990,14 +1009,20 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel3.add(painelImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
+        jPanel3.add(painelImg);
+        painelImg.setBounds(230, 200, 138, 188);
 
         txtDesc.setEditable(false);
         txtDesc.setColumns(20);
         txtDesc.setRows(5);
         jScrollPane2.setViewportView(txtDesc);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 360, 120));
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 400, 360, 120);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/MAIOR.png"))); // NOI18N
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(0, 80, 1260, 460);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1007,7 +1032,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1256,6 +1281,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1386,7 +1412,7 @@ public class Principal extends javax.swing.JFrame {
                 txtdesc7.setText(lista.get(7).getDescricao());
                 ImageIcon icone7 = new ImageIcon(lista.get(7).getImagem());
                 icone7.setImage(icone7.getImage().getScaledInstance(Imagem7.getWidth(), Imagem7.getHeight(), 1));
-                Imagem5.setIcon(icone7);
+                Imagem7.setIcon(icone7);
                     
             }else{
                 

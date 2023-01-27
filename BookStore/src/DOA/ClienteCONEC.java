@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author harry
  */
 public class ClienteCONEC {
-    
+    //Criação de variaveis para relacionamento com o banco de dados
     Connection conn;
     PreparedStatement rue;
     ResultSet rs;
@@ -25,11 +25,13 @@ public class ClienteCONEC {
     
     public void cadastrarCliente(Cliente x){
         
-        String sql = "insert into usuarios (id,nome,endereco,telefone,cpf,senha,email,bookcoin) values(?,?,?,?,?,?,?,0)";
+        //Comando sql a ser passado para o banco para cadastrar o usuario
+        String sql = "insert into usuarios (id,nome,endereco,telefone,cpf,senha,email) values(?,?,?,?,?,?,?)";
         conn = new Conexao().conectaBD();
         
         try {
             
+            //Passa o coamndo da string ao banco de dados
             rue = conn.prepareStatement(sql);
             
             rue.setInt(1, x.getId());
@@ -40,7 +42,7 @@ public class ClienteCONEC {
             rue.setString(6,x.getSenha());
             rue.setString(7,x.getEmail());
             
-            
+            //Executa o comando passado
             rue.execute();
             rue.close();
                     
@@ -50,13 +52,13 @@ public class ClienteCONEC {
         
     }
     
-    public ResultSet AutentificarOCadastro(Cliente novo){
+    public ResultSet AutentificarOLogin(Cliente novo){
         
-        //Recebe o cliente
+        //Faz a conexao com o banco
         conn = new Conexao().conectaBD();
         
         try {
-            //Procura no banco de dados as duas variaveis
+            //Procura no banco de dados a linha  que possui as duas variaveis
             String sql = "select * from usuarios where email = ? and senha = ?";
             
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -69,16 +71,42 @@ public class ClienteCONEC {
             
         } catch (SQLException erro) {
             
-            JOptionPane.showMessageDialog(null, "Autentificao" + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Autentificao do cadastro" + erro.getMessage());
             return null;
         }
         
         
     }
     
+    public ResultSet Autentificarocadastro(Cliente novo){
+        
+        //Faz a conexao
+        conn = new Conexao().conectaBD();
+        try {
+            
+            //Olha se a senha é igual
+            String sql = "select * from usuarios where senha = ?";
+            
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            
+            pstm.setString(1, novo.getSenha());
+            
+            ResultSet setar = pstm.executeQuery();
+            //Se a houver o cadastro 
+            return setar;
+            
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Autentica o login" + erro.getMessage());
+            return null;
+        }
+        
+        
+    }
     
     public ArrayList<Cliente>setacadastros(String Contaaseralterada){
         
+        //Procura no banco a conta cujo a senha é a digitada
         String sql = "select * from usuarios where senha = ? ";
         conn = new Conexao().conectaBD();
         
@@ -87,12 +115,13 @@ public class ClienteCONEC {
             rue = conn.prepareStatement(sql);
             rue.setString(1, Contaaseralterada);
             
+            //Result set é usado para relacionar banco-> java, trazendo o resultado achado no banco para o rs
             rs = rue.executeQuery();
             
             Cliente novo = new Cliente(0, "", "", "", "", "", 0);
             
             if(rs.next()){
-                
+                //Se existir essa senha é retornada um arraylist com as informções do cliente
                 novo.setId(rs.getInt("id"));
                 novo.setNome(rs.getString("nome"));
                 novo.setEmail(rs.getString("email"));
@@ -123,13 +152,14 @@ public class ClienteCONEC {
   
     public void AlterarCadastro( Cliente novo,String senhadig){
         
-        
+        //Faz o upadte dos dados alterados pelo cliente onde a sua senha for identificada
         String sql = "update usuarios set nome = ? , endereco = ?, telefone = ?, cpf = ?,email = ? where senha = ?";
         conn = new Conexao().conectaBD();
         
         
         try {
             
+            //Passa o "statement" digitado na sql para o naco
             rue = conn.prepareStatement(sql);
             rue.setString(6, senhadig);
             
@@ -139,8 +169,9 @@ public class ClienteCONEC {
             rue.setString(4,novo.getCpf());
             rue.setString(5,novo.getEmail());
             
-            
+            //Executa o comando passado
             rue.execute();
+            //Fecha a coexão estabelecida
             rue.close();
                   
         } catch (SQLException erro) {
@@ -153,6 +184,7 @@ public class ClienteCONEC {
     
     public void excluirCliente(Cliente x){
         
+        //Deleta conjunto de dados do cliente a partir do que o mesmo selecionou
         String url = "delete from usuarios where senha = ?";
         
         conn = new Conexao().conectaBD();

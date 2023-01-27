@@ -20,7 +20,7 @@ public class Cadastro extends javax.swing.JFrame {
      */
     public Cadastro() {
         initComponents();
-        
+        //Limitações a oq pode ser digitado
         txtnome.setDocument(new LimitaCaracteres(50, LimitaCaracteres.TipoEntrada.NOME));
         txtendereco.setDocument(new LimitaCaracteres(100, LimitaCaracteres.TipoEntrada.ENDERECO));
         txtcpf.setDocument(new LimitaCaracteres(11, LimitaCaracteres.TipoEntrada.CPF));
@@ -59,6 +59,7 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -71,48 +72,81 @@ public class Cadastro extends javax.swing.JFrame {
         setTitle("Tela de Cadastro");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(125, 255, 232));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBS_semFundo1.png"))); // NOI18N
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(101, 6, 160, 68);
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(30, 58, 34, 16);
+        jPanel1.add(txtendereco);
+        txtendereco.setBounds(30, 131, 307, 24);
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CPF");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(30, 161, 20, 16);
 
         txtcpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcpfActionPerformed(evt);
             }
         });
+        jPanel1.add(txtcpf);
+        txtcpf.setBounds(30, 183, 307, 24);
 
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Telefone");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(30, 213, 50, 16);
 
         txttelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttelefoneActionPerformed(evt);
             }
         });
+        jPanel1.add(txttelefone);
+        txttelefone.setBounds(30, 235, 307, 24);
 
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(30, 265, 29, 16);
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(30, 287, 307, 24);
 
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Senha");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(30, 317, 34, 16);
 
         txtsenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtsenhaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtsenha);
+        txtsenha.setBounds(30, 339, 307, 22);
 
         btnCadastrar.setBackground(new java.awt.Color(0, 0, 0));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -124,122 +158,67 @@ public class Cadastro extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCadastrar);
+        btnCadastrar.setBounds(127, 379, 115, 28);
 
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Endereço");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(30, 110, 52, 16);
 
         txtnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnomeActionPerformed(evt);
             }
         });
+        jPanel1.add(txtnome);
+        txtnome.setBounds(30, 80, 307, 24);
 
+        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Já tem uma conta?");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(97, 413, 105, 25);
 
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("<");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
         });
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(30, 6, 27, 34);
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel10.setForeground(new java.awt.Color(0, 255, 0));
         jLabel10.setText("Clique aqui!");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
         });
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(208, 417, 64, 16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtsenha)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel1))
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jLabel7))
-                                .addComponent(txtEmail)
-                                .addComponent(txttelefone)
-                                .addComponent(txtcpf)
-                                .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(5, 5, 5)
-                .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(24, 24, 24))
-        );
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/GIROU.png"))); // NOI18N
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(0, 0, 370, 460);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
         );
 
         pack();
@@ -252,55 +231,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
      
-        try{
-            String nome,endereco,telefone,cpf,senha,email;
-
-
-           nome = txtnome.getText();
-           endereco = txtendereco.getText();
-           telefone = txttelefone.getText();
-           cpf = txtcpf.getText();
-           senha = txtsenha.getText();
-           email = txtEmail.getText();
-
-           Cliente novo = new Cliente(0,"","","","","",0);
-
-
-           novo.setNome(nome);
-           novo.setEndereco(endereco);
-           novo.setTelefone(telefone);
-           novo.setCpf(cpf);
-           novo.setSenha(senha);
-           novo.setEmail(email);
-           novo.setBookcoin(0);
-
-           ClienteCONEC cliente = new ClienteCONEC();
-           ResultSet setaCliente = cliente.AutentificarOCadastro(novo);
-
-            if (setaCliente.next()){
-                //Se o next detectar o cadastro no banco ele impede o cadastro
-                JOptionPane.showMessageDialog(null, "Ja existe esse cadastro!");
-
-            } else {
-                
-                //Se não ele permite
-                cliente.cadastrarCliente(novo);
-                
-                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
-                Login y = new Login();
-                this.dispose();
-                y.setVisible(true);
-                
-            }
-
-
-            
-            
-
-        }catch(SQLException erro){
-            JOptionPane.showMessageDialog(null,"Botao cadastrar" + erro.getMessage());
-
-        }
+        cadastrar_cliente();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenhaActionPerformed
@@ -373,6 +304,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -391,4 +323,61 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtsenha;
     private javax.swing.JTextField txttelefone;
     // End of variables declaration//GEN-END:variables
+    
+    
+    private void cadastrar_cliente(){
+        
+         try{
+            String nome,endereco,telefone,cpf,senha,email;
+
+            //Pega os valores digitados nos campos da interface e passa para um novo objeto
+           nome = txtnome.getText();
+           endereco = txtendereco.getText();
+           telefone = txttelefone.getText();
+           cpf = txtcpf.getText();
+           senha = txtsenha.getText();
+           email = txtEmail.getText();
+
+           Cliente novo = new Cliente(0,"","","","","",0);
+
+
+           novo.setNome(nome);
+           novo.setEndereco(endereco);
+           novo.setTelefone(telefone);
+           novo.setCpf(cpf);
+           novo.setSenha(senha);
+           novo.setEmail(email);
+           novo.setBookcoin(0);
+
+           ClienteCONEC cliente = new ClienteCONEC();
+           ResultSet setaCliente = cliente.Autentificarocadastro(novo);
+
+            if (setaCliente.next()){
+                //Se o next detectar o cadastro no banco ele impede o cadastro
+                JOptionPane.showMessageDialog(null, "Ja existe esse cadastro!");
+
+            } else {
+                
+                //Se não ele permite
+                cliente.cadastrarCliente(novo);
+                
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+                Login y = new Login();
+                this.dispose();
+                y.setVisible(true);
+                
+            }
+
+
+            
+            
+
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null,"Botao cadastrar" + erro.getMessage());
+
+        }
+        
+    }
+
+
 }
