@@ -29,9 +29,5 @@ public class Boleto extends FormaDePagamento {
     public void setDatavencimento(Date datavencimento) {
         this.datavencimento = datavencimento;
     }
-
-    public void gerarboleto() {
-
-    }
-
+    
 }

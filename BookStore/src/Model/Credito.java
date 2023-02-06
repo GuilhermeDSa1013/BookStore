@@ -19,11 +19,6 @@ public class Credito extends Cartao {
         this.parcelas = parcelas;
     }
 
-    public void calcparcelas() {
-
-    }
-
-    public void efetuarcompra() {
-
-    }
+    
+    
 }

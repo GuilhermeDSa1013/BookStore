@@ -1,0 +1,41 @@
+Livro 1
+Outlander: A viajante no Tempo
+51.78
+Diana Gabaldon
+Arqueiro
+Uma mulher dos anos de 194 volta no tempo após tocar em pedras e acaba voltando no 20anos.
+
+Livro 2
+Alice no País das Maravilhas
+44.5
+Lewis Carroll
+Darkside
+Uma menina cai em um buraco após seguir um coelho, e se encontra em novo mundo, um mundo maravilhoso
+
+Livro 3
+O Diário de Anne Frank
+99.9
+Anne Frank
+Record
+Relato de uma judia escondida durante a Segunda Guerra Mundial
+
+Livro 4
+Os Maridos de Evelyn Hugo
+28.9
+Taylor Jenkins Reid
+Paralela
+Entrevistas da protagonista, Evelyn Hugo, à respeito dos seus antigos casamentos
+
+Livro 5
+Harry Potter e a Pedra Filosofal
+29.9
+J K Rowling
+Rocco
+Um garoto descobre que é um bruxo, e um certo dia recebe uma carta de Hogwarts, o que o espera?
+
+Livro 6
+TOG: A Lâmina da Assassina
+35.9
+Sarah J Maas
+Galera
+Spin-off da série Trono de Vidro, o passado da querida Assassina de Adarlan, Celaena.
